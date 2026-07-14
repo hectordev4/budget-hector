@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+.card-layout {
+  display:flex;
+  flex-direction:row;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* The item card itself */
 .item-card {
   width: 100%;
@@ -34,9 +42,17 @@ mat-card-header {
 
 mat-card-title {
   font-family: sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1a1a1a;
+  margin: 0;
+}
+
+mat-card-subtitle {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
   margin: 0;
 }
 

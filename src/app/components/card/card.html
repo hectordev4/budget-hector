@@ -5,17 +5,19 @@
       <!-- Text Content Left -->
       <div class="card-details">
         <mat-card-header>
-          <mat-card-title>{{ offer().title }}</mat-card-title>
+          <mat-card-subtitle>{{ offer().title }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p>{{ offer().description }}</p>
         </mat-card-content>
       </div>
 
+      <div>
+        <mat-card-title class="item-price">{{ offer().price }} €</mat-card-title>
+      </div>
+
       <!-- Price & Custom Reactive Checkbox Right -->
       <div class="card-actions-wrapper">
-        <span class="item-price">{{ offer().price }} €</span>
-        
         <!-- Drop your custom component here -->
         <app-checkbox 
           label="Afegir" 
