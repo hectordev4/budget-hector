@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { BudgetCheckbox } from '../checkbox/checkbox'; // Adjust path as needed
+import { BudgetCheckbox } from '../checkbox/checkbox';
+import { Offer } from '../../models/Offer';
 
 @Component({
   selector: 'app-item-card',
@@ -10,9 +11,8 @@ import { BudgetCheckbox } from '../checkbox/checkbox'; // Adjust path as needed
   imports: [MatCardModule, BudgetCheckbox]
 })
 export class ItemCard {
-  offer = input.required<{ title: string; description: string; price: number }>();
+  offer = input.required<Offer>();
   
-  // Emits up to parent container to track overall budget state
   selectionChange = output<{ selected: boolean; price: number }>();
 
   onCheckboxToggle(isSelected: boolean): void {
