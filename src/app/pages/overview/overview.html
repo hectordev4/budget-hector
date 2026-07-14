@@ -1,0 +1,19 @@
+<!-- Main content flow (Landmark 1) -->
+<main class="overview-container">
+  <section class="cards-list">
+    @for (offer of offers(); track offer.id) {
+      <app-item-card 
+        [offer]="offer"
+        (selectionChange)="onCardSelectionChange(offer.id, $event)">
+      </app-item-card>
+    }
+  </section>
+</main>
+
+<!-- Page Summary Footer (Landmark 2 - Sibling to main) -->
+<footer class="summary-footer">
+  <div class="summary-content">
+    <span class="summary-label">Preu pressuposat:</span>
+    <span class="summary-total">{{ totalBudget() }} €</span>
+  </div>
+</footer>
