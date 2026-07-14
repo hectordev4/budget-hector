@@ -1,12 +1,28 @@
 <div class="card-container">
-    <mat-card class="item-card">
+  <mat-card class="item-card">
+    <div class="card-layout">
+      
+      <!-- Text Content Left -->
+      <div class="card-details">
         <mat-card-header>
-            <h1>Course Title</h1>
-            <!-- <mat-card-title>{{ course().title }}</mat-card-title> -->
+          <mat-card-title>{{ offer().title }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p>Course Description</p>
-            <!-- <p>{{ course().description }}</p> -->
+          <p>{{ offer().description }}</p>
         </mat-card-content>
-    </mat-card>
+      </div>
+
+      <!-- Price & Custom Reactive Checkbox Right -->
+      <div class="card-actions-wrapper">
+        <span class="item-price">{{ offer().price }} €</span>
+        
+        <!-- Drop your custom component here -->
+        <app-checkbox 
+          label="Afegir" 
+          (checkedChange)="onCheckboxToggle($event)">
+        </app-checkbox>
+      </div>
+
+    </div>
+  </mat-card>
 </div>
