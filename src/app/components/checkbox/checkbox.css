@@ -1,0 +1,8 @@
+/* Deep selection targeting ensures Angular Material's native structure
+   respects your relative layout rules */
+::ng-deep .mat-mdc-checkbox .mdc-label {
+  font-family: sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+}
