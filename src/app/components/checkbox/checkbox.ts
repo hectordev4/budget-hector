@@ -4,13 +4,13 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-budget-checkbox',
+  selector: 'app-checkbox',
   standalone: true,
   imports: [MatCheckboxModule, ReactiveFormsModule],
   templateUrl: './checkbox.html',
   styleUrls: ['./checkbox.css']
 })
-export class BudgetCheckboxComponent implements OnInit {
+export class BudgetCheckbox implements OnInit {
   // Configurable label (e.g., "Afegir")
   label = input<string>('Afegir');
   
