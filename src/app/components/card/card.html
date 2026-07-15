@@ -1,5 +1,6 @@
 <div class="card-container">
-  <mat-card class="item-card">
+  <!-- Dynamic class 'is-selected' applies the green border -->
+  <mat-card class="item-card" [class.is-selected]="isSelected()">
     <div class="card-layout">
       
       <!-- Text Content Left -->
@@ -12,13 +13,13 @@
         </mat-card-content>
       </div>
 
-      <div>
+      <!-- Centered Price -->
+      <div class="card-price">
         <mat-card-title class="item-price">{{ offer().price }} €</mat-card-title>
       </div>
 
-      <!-- Price & Custom Reactive Checkbox Right -->
+      <!-- Custom Reactive Checkbox Right -->
       <div class="card-actions-wrapper">
-        <!-- Drop your custom component here -->
         <app-checkbox 
           label="Afegir" 
           (checkedChange)="onCheckboxToggle($event)">
@@ -26,5 +27,32 @@
       </div>
 
     </div>
+
+    <!-- Accordion panel dynamically expands when selected -->
+    @if (offer().hasOptions && isSelected()) {
+      <div class="accordion-panel">
+        
+        <!-- Pages Counter Row -->
+        <div class="counter-row">
+          <span class="counter-label">Nombre de pàgines</span>
+          <div class="counter-controls">
+            <button class="counter-btn" (click)="updatePages(-1)">-</button>
+            <span class="counter-value">{{ pages() }}</span>
+            <button class="counter-btn" (click)="updatePages(1)">+</button>
+          </div>
+        </div>
+
+        <!-- Languages Counter Row -->
+        <div class="counter-row">
+          <span class="counter-label">Nombre de llenguatges</span>
+          <div class="counter-controls">
+            <button class="counter-btn" (click)="updateLanguages(-1)">-</button>
+            <span class="counter-value">{{ languages() }}</span>
+            <button class="counter-btn" (click)="updateLanguages(1)">+</button>
+          </div>
+        </div>
+
+      </div>
+    }
   </mat-card>
 </div>

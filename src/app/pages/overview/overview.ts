@@ -1,6 +1,12 @@
 import { Component, signal, computed } from '@angular/core';
-import { ItemCard } from '../../components/card/card';
+import { ItemCard, CardSelectionState } from '../../components/card/card';
 import { Offer } from '../../models/Offer';
+
+// Define a local interface to track the options chosen per offer
+interface SelectionDetails {
+  pages: number;
+  languages: number;
+}
 
 @Component({
   selector: 'app-overview',
@@ -9,51 +15,79 @@ import { Offer } from '../../models/Offer';
   templateUrl: './overview.html',
   styleUrls: ['./overview.css']
 })
+
+
 export class Overview {
   
-  // 1. Define your initial budget/course options
   offers = signal<Offer[]>([
     {
       id: 1,
       title: 'Seo',
       description: 'Programació d\'una web responsive completa',
-      price: 300
+      price: 300,
+      hasOptions: false,
     },
     {
       id: 2,
       title: 'Ads',
       description: 'Programació d\'una web responsive completa',
-      price: 400
+      price: 400,
+      hasOptions: false,
     },
     {
       id: 3,
       title: 'Web',
       description: 'Programació d\'una web responsive completa',
-      price: 500
+      price: 500,
+      hasOptions: true,
     }
   ]);
 
-  // 2. Track selected offer IDs in a Signal Set
-  selectedOfferIds = signal<Set<number>>(new Set());
+  // Track active selections as a dictionary of key-value pairs (ID -> { pages, languages })
+  activeSelections = signal<Record<number, SelectionDetails>>({});
 
-  // 3. Computed Signal: Automatically calculates the total sum whenever selectedOfferIds changes
+  // Computed Signal: Re-calculates total budget instantly when activeSelections changes
   totalBudget = computed(() => {
-    const selectedIds = this.selectedOfferIds();
-    return this.offers()
-      .filter(offer => selectedIds.has(offer.id))
-      .reduce((sum, offer) => sum + offer.price, 0);
+    const selections = this.activeSelections();
+    
+    return this.offers().reduce((sum, offer) => {
+      // If this offer is not currently selected, skip it
+      if (!selections[offer.id]) {
+        return sum;
+      }
+
+      // Add the base price of the offer
+      let offerTotal = offer.price;
+
+      // If the offer supports customizable options, add the page and language costs
+      if (offer.hasOptions) {
+        const details = selections[offer.id];
+        // Based on mockup logic: 30€ per page and 30€ per language
+        const extraCost = (details.pages + details.languages) * 30;
+        offerTotal += extraCost;
+      }
+
+      return sum + offerTotal;
+    }, 0);
   });
 
-  // 4. Update the selection Set when a card component reports a checkbox change
-  onCardSelectionChange(offerId: number, event: { selected: boolean; price: number }): void {
-    this.selectedOfferIds.update(currentSet => {
-      const newSet = new Set(currentSet);
+  // Handles state changes emitted by child ItemCards
+  onCardSelectionChange(offerId: number, event: CardSelectionState): void {
+    this.activeSelections.update(currentSelections => {
+      const updated = { ...currentSelections };
+
       if (event.selected) {
-        newSet.add(offerId);
+        // Add or update the selection with the latest page and language count
+        updated[offerId] = {
+          pages: event.pages,
+          languages: event.languages
+        };
       } else {
-        newSet.delete(offerId);
+        // If unchecked, completely remove it from the budget calculations
+        delete updated[offerId];
       }
-      return newSet;
+
+      return updated;
     });
   }
 }
