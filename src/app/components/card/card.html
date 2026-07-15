@@ -1,22 +1,25 @@
 <div class="card-container">
-  <mat-card class="item-card">
+  <!-- Dynamic class 'is-selected' applies the green border -->
+  <mat-card class="item-card" [class.is-selected]="isSelected()">
     <div class="card-layout">
       
       <!-- Text Content Left -->
       <div class="card-details">
         <mat-card-header>
-          <mat-card-title>{{ offer().title }}</mat-card-title>
+          <mat-card-subtitle>{{ offer().title }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p>{{ offer().description }}</p>
         </mat-card-content>
       </div>
 
-      <!-- Price & Custom Reactive Checkbox Right -->
+      <!-- Centered Price -->
+      <div class="card-price">
+        <mat-card-title class="item-price">{{ offer().price }} €</mat-card-title>
+      </div>
+
+      <!-- Custom Reactive Checkbox Right -->
       <div class="card-actions-wrapper">
-        <span class="item-price">{{ offer().price }} €</span>
-        
-        <!-- Drop your custom component here -->
         <app-checkbox 
           label="Afegir" 
           (checkedChange)="onCheckboxToggle($event)">
@@ -24,5 +27,32 @@
       </div>
 
     </div>
+
+    <!-- Accordion panel dynamically expands when selected -->
+    @if (offer().hasOptions && isSelected()) {
+      <div class="accordion-panel">
+        
+        <!-- Pages Counter Row -->
+        <div class="counter-row">
+          <span class="counter-label">Nombre de pàgines</span>
+          <div class="counter-controls">
+            <button class="counter-btn" (click)="updatePages(-1)">-</button>
+            <span class="counter-value">{{ pages() }}</span>
+            <button class="counter-btn" (click)="updatePages(1)">+</button>
+          </div>
+        </div>
+
+        <!-- Languages Counter Row -->
+        <div class="counter-row">
+          <span class="counter-label">Nombre de llenguatges</span>
+          <div class="counter-controls">
+            <button class="counter-btn" (click)="updateLanguages(-1)">-</button>
+            <span class="counter-value">{{ languages() }}</span>
+            <button class="counter-btn" (click)="updateLanguages(1)">+</button>
+          </div>
+        </div>
+
+      </div>
+    }
   </mat-card>
 </div>
