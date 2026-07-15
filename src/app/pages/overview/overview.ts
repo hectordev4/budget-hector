@@ -1,12 +1,7 @@
 import { Component, signal, computed } from '@angular/core';
 import { ItemCard, CardSelectionState } from '../../components/card/card';
 import { Offer } from '../../models/Offer';
-
-// Define a local interface to track the options chosen per offer
-interface SelectionDetails {
-  pages: number;
-  languages: number;
-}
+import { SelectionDetails } from '../../models/SelectionDetails';
 
 @Component({
   selector: 'app-overview',
