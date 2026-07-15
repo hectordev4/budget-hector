@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   box-sizing: border-box;
 }
 
@@ -13,12 +13,15 @@
   position: relative;
   overflow: hidden;
   background-color: var(--color-bg-secondary);
-  border-radius: 1.25rem;
+  border-radius: 1.5rem;
+  box-shadow: none;
   border: 0.0625rem solid rgba(0, 0, 0, 0.03);
-  width: 100%;
-  height: 16vh;
-  min-height: 10rem;
-  padding: 1.5rem 1rem !important;
+  
+  width: 95%;
+  height: 18vh;
+  min-height: 11rem;
+  padding: 2rem 1rem !important; 
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,18 +30,19 @@
 .banner-text-content {
   z-index: 2;
   text-align: center;
-  width: 95%;
+  width: 90%;
 }
 
 .banner-text-content h1 {
-  font-size: 1.4rem;
+  font-family: sans-serif;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-text-main);
   margin: 0;
-  letter-spacing: -0.04rem;
+  letter-spacing: -0.05rem;
 }
 
-/* Background Blobs */
+/* --- Decorative Shapes (Restored to your exact specs) --- */
 .decor-shape {
   position: absolute;
   border-radius: 50%;
@@ -47,28 +51,28 @@
 }
 
 .shape-orange {
-  top: -1rem;
+  top: -1.25rem;
   left: 50%;
   transform: translateX(-50%) rotate(15deg);
-  width: 4rem;
-  height: 2rem;
+  width: 5rem;
+  height: 2.5rem;
   background-color: var(--color-brand-orange);
-  border-radius: 2rem;
+  border-radius: 2.5rem;
 }
 
 .shape-yellow {
-  bottom: -1rem;
+  bottom: -1.5rem;
   left: -1rem;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 5.5rem;
+  height: 5.5rem;
   background-color: var(--color-brand-yellow);
 }
 
 .shape-green {
-  bottom: -1.5rem;
-  right: 15%;
-  width: 3.5rem;
-  height: 4rem;
+  bottom: -2rem;
+  right: 18%;
+  width: 4.2rem;
+  height: 4.8rem;
   background-color: var(--color-brand-green);
   transform: rotate(-20deg);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
@@ -76,25 +80,14 @@
 
 /* --- 2. Tablet Mid-range (40rem to 64rem) --- */
 @media (min-width: 40rem) {
-  .banner-container {
-    padding: 1rem;
-  }
-
   .promo-banner-card {
     width: 90%;
-    height: 18vh;
-    min-height: 11rem;
-    padding: 2rem 1.25rem !important;
-    border-radius: 1.5rem;
+    height: 20vh;
   }
 
   .banner-text-content h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
-
-  .shape-orange { width: 4.5rem; height: 2.25rem; }
-  .shape-yellow { width: 5rem; height: 5rem; }
-  .shape-green { width: 4rem; height: 4.5rem; }
 }
 
 /* --- 3. Desktop Large Screen (>= 64rem) --- */
@@ -109,8 +102,4 @@
   .banner-text-content h1 {
     font-size: 2.2rem;
   }
-
-  .shape-orange { width: 5rem; height: 2.5rem; }
-  .shape-yellow { width: 5.5rem; height: 5.5rem; }
-  .shape-green { width: 4.2rem; height: 4.8rem; }
 }
