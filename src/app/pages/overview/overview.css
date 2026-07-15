@@ -1,13 +1,14 @@
-/* Now acting as the semantic page wrapper */
+/* overview.css */
+
+/* --- 1. Mobile Default (< 40rem) --- */
 .overview-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
-  /* Extra bottom padding so cards don't get hidden behind the sibling footer */
-  padding: 2rem 1rem 8rem 1rem; 
+  background-color: var(--color-bg-primary);
+  padding: 1rem 0.5rem 7rem 0.5rem;
   box-sizing: border-box;
 }
 
@@ -16,20 +17,21 @@
   justify-content: center;
   align-items: center;
   min-height: 20rem;
-  font-family: sans-serif;
   font-size: 1.2rem;
-  color: #666666;
+  color: var(--color-text-light);
 }
 
 .cards-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 48rem;
 }
 
-/* Footer sits completely independent at the bottom of the viewport */
+.banner-wrapper {
+  width: 100%;
+}
+
 .summary-footer {
   position: fixed;
   bottom: 0;
@@ -37,8 +39,8 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-top: 0.0625rem solid rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 0;
+  border-top: 0.0625rem solid var(--color-border-light);
+  padding: 1.25rem 0;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -46,45 +48,71 @@
 
 .summary-content {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 48rem;
-  padding: 0 2rem;
-  gap: 1.5rem;
+  padding: 0 1rem;
   box-sizing: border-box;
 }
 
 .summary-label {
-  font-family: sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-text-dark);
 }
 
 .summary-total {
-  font-family: sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: #000000;
+  color: var(--color-text-main);
 }
 
-/* Mobile Adjustments */
-@media (max-width: 48rem) {
+/* --- 2. Tablet Mid-range (40rem to 64rem) --- */
+@media (min-width: 40rem) {
   .overview-container {
-    padding: 1rem 0.5rem 7rem 0.5rem;
+    padding: 1.5rem 1rem 7.5rem 1rem;
   }
-  
+
+  .cards-list {
+    gap: 1.25rem;
+  }
+
   .summary-content {
-    justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
-  
+
   .summary-label {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
-  
+
   .summary-total {
-    font-size: 1.8rem;
+    font-size: 2rem;
+  }
+}
+
+/* --- 3. Desktop Large Screen (>= 64rem) --- */
+@media (min-width: 64rem) {
+  .overview-container {
+    padding: 2rem 2rem 8rem 2rem;
+  }
+
+  .banner-wrapper,
+  .cards-list,
+  .summary-content {
+    max-width: var(--max-width-content);
+  }
+
+  .summary-content {
+    justify-content: flex-end;
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
+
+  .summary-label {
+    font-size: 1.3rem;
+  }
+
+  .summary-total {
+    font-size: 2.2rem;
   }
 }

@@ -1,172 +1,243 @@
-/* Container to center and pad the card on your page */
+/* card.css */
+
+/* --- 1. Mobile Default (< 40rem) --- */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 2rem;
+  padding: 0.5rem;
   box-sizing: border-box;
+}
+
+.item-card {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  border-radius: 1rem;
+  border: 0.0625rem solid var(--color-border-light);
+  box-shadow: var(--shadow-soft);
+  padding: 1.25rem !important;
+  transition: var(--transition-card);
+}
+
+.item-card.is-selected {
+  border-color: var(--color-brand-green);
+  box-shadow: var(--shadow-selected);
+}
+
+.item-card:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: var(--shadow-hover);
 }
 
 .card-layout {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
 }
 
-/* The item card itself */
-.item-card {
+.card-details {
   width: 100%;
-  max-width: 50rem;
-  background-color: #ffffff;
-  border-radius: 1.25rem;
-  border: 0.0625rem solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.04);
-  padding: 1.5rem !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.25s ease;
 }
 
-/* Green Highlight when card checkbox is checked */
-.item-card.is-selected {
-  border-color: #4e9f6d;
-  box-shadow: 0 0.5rem 1.5rem rgba(78, 159, 109, 0.08);
-}
-
-/* Subtle hover effect to make it feel interactive */
-.item-card:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
-}
-
-/* Header & Title Styling */
 mat-card-header {
   padding: 0;
-  margin-bottom: 1rem;
-}
-
-mat-card-title {
-  font-family: sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 mat-card-subtitle {
   font-family: sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #000000;
+  color: var(--color-text-main);
   margin: 0;
 }
 
-/* Content & Description Styling */
 mat-card-content {
   padding: 0 !important;
 }
 
 mat-card-content p {
   font-family: sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
   margin: 0;
 }
 
-/* --- Accordion Panel & Counter Styling --- */
+.item-price {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+}
 
+.card-actions-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Accordion Counter Row */
 .accordion-panel {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.0625rem solid var(--color-border-light);
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align inputs to the bottom right */
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   animation: slideDown 0.2s ease-out forwards;
 }
 
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-0.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .counter-row {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 1.5rem;
+  justify-content: space-between;
   width: 100%;
+  gap: 1rem;
 }
 
 .counter-label {
   font-family: sans-serif;
-  font-size: 0.9rem;
-  color: #444444;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
   font-weight: 600;
 }
 
-/* Compact pill container for the custom plus/minus inputs */
 .counter-controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  border: 0.0625rem solid rgba(0, 0, 0, 0.12);
+  gap: 0.5rem;
+  border: 0.0625rem solid var(--color-border-light);
   border-radius: 2rem;
   padding: 0.2rem 0.4rem;
+  background-color: var(--color-bg-primary);
 }
 
 .counter-btn {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
-  border: 0.0625rem solid rgba(0, 0, 0, 0.15);
-  background-color: #ffffff;
-  color: #999999;
-  font-size: 1rem;
+  border: 0.0625rem solid var(--color-border-light);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.15s;
+  transition: background-color var(--transition-smooth);
 }
 
 .counter-btn:hover {
-  background-color: #f5f5f5;
-  color: #333333;
+  background-color: var(--color-bg-secondary);
 }
 
 .counter-value {
   font-family: sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #000000;
-  width: 1.5rem;
+  color: var(--color-text-main);
+  width: 1.25rem;
   text-align: center;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 48rem) {
-  .card-layout {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+/* --- 2. Tablet Mid-range (40rem to 64rem) --- */
+@media (min-width: 40rem) {
+  .card-container {
+    padding: 1rem;
   }
 
-  .accordion-panel {
+  .item-card {
+    border-radius: 1.25rem;
+    padding: 1.5rem !important;
+  }
+
+  .item-card:hover {
+    transform: translateY(-0.2rem);
+  }
+
+  .card-layout {
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-between;
     align-items: center;
   }
 
+  .card-actions-wrapper {
+    width: auto;
+  }
+
+  mat-card-subtitle {
+    font-size: 1.35rem;
+  }
+
+  mat-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .item-price {
+    font-size: 2rem;
+  }
+
+  .accordion-panel {
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
   .counter-row {
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    width: auto;
+  }
+
+  .counter-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- 3. Desktop Large Screen (>= 64rem) --- */
+@media (min-width: 64rem) {
+  .card-container {
+    padding: 2rem;
+  }
+
+  .item-card {
+    max-width: var(--max-width-content);
+  }
+
+  .item-card:hover {
+    transform: translateY(-0.25rem);
+  }
+
+  .card-layout {
+    gap: 2rem;
+  }
+
+  mat-card-subtitle {
+    font-size: 1.5rem;
+  }
+
+  mat-card-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .item-price {
+    font-size: 2.5rem;
+  }
+
+  .counter-row {
+    gap: 1.5rem;
   }
 }
