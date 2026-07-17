@@ -12,5 +12,3 @@ export interface SavedQuote {
   totalPrice: number;
   date: Date;
 }
-
-export type SortType = 'date' | 'price' | 'name';

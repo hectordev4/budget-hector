@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { SavedQuote } from '../../models/SavedQuote';
+import { SavedQuote } from '@models/SavedQuote';
 
 @Component({
   selector: 'app-ongoing-card',

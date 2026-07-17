@@ -1,18 +1,18 @@
 import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OngoingQuotesService } from '../../services/ongoing-quotes.service';
-import { SortType } from '../../models/SavedQuote';
-import { BoardFilters } from '../board-filters/board-filters';
-import { OngoingCard } from '../ongoing-card/ongoing-card';
+import { SortType } from './ongoing-board.types';
+import { BoardFilters } from './components/board-filters/board-filters';
+import { OngoingCard } from './components/ongoing-card/ongoing-card';
 
 @Component({
   selector: 'app-ongoing-board',
   standalone: true,
-  imports: [CommonModule, BoardFilters, OngoingCard], // <-- Must import the filter component here!
+  imports: [CommonModule, BoardFilters, OngoingCard],
   templateUrl: './ongoing-board.html',
   styleUrl: './ongoing-board.css'
 })
-export class OngoingBoardComponent {
+export class OngoingBoard {
   private quotesService = inject(OngoingQuotesService);
 
   // Core filter states linked to inputs

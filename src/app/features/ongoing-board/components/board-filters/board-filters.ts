@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { SortType } from '../../models/SavedQuote';
+import { SortType } from '../../ongoing-board.types';
 
 @Component({
   selector: 'app-board-filters',

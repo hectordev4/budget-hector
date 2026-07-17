@@ -1,14 +1,14 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
-import { ItemCard, CardSelectionState } from '../../components/card/card';
-import { BudgetSummary } from '../../components/budget-summary/budget-summary';
-import { UserForm } from '../../components/user-form/user-form';
-import { OngoingBoard } from '../../components/ongoing-board/ongoing-board';
-import { Offer } from '../../models/Offer';
-import { SelectionDetails } from '../../models/SelectionDetails';
-import { OffersService } from '../../services/offers.service';
-import { OngoingQuotesService } from '../../services/ongoing-quotes.service';
-import { UserFormData } from '../../models/UserFormData';
-import { ContractedService } from '../../models/SavedQuote';
+import { ItemCard, CardSelectionState } from '@features/card/card';
+import { BudgetSummary } from '@features/budget-summary/budget-summary';
+import { UserForm } from '@features/user-form/user-form';
+import { OngoingBoard } from '@features/ongoing-board/ongoing-board';
+import { Offer } from '@models/Offer';
+import { SelectionDetails } from '@models/SelectionDetails';
+import { UserFormData } from '@models/UserFormData';
+import { ContractedService } from '@models/SavedQuote';
+import { OffersService } from '@services/offers.service';
+import { OngoingQuotesService } from '@services/ongoing-quotes.service';
 
 @Component({
   selector: 'app-overview',
