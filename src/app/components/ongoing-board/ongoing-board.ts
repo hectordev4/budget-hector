@@ -2,12 +2,13 @@ import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OngoingQuotesService } from '../../services/ongoing-quotes.service';
 import { SortType } from '../../models/SavedQuote';
-import { BoardFilters } from '../board-filters/board-filters'; // Ensure correct path here
+import { BoardFilters } from '../board-filters/board-filters';
+import { OngoingCard } from '../ongoing-card/ongoing-card';
 
 @Component({
   selector: 'app-ongoing-board',
   standalone: true,
-  imports: [CommonModule, BoardFilters], // <-- Must import the filter component here!
+  imports: [CommonModule, BoardFilters, OngoingCard], // <-- Must import the filter component here!
   templateUrl: './ongoing-board.html',
   styleUrl: './ongoing-board.css'
 })
