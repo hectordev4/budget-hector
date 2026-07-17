@@ -32,6 +32,13 @@
   width: 100%;
 }
 
+.section-divider {
+  border: 0;
+  border-top: 0.0625rem dashed var(--color-border-light, rgba(0,0,0,0.15));
+  margin: 3rem 0;
+  width: 100%;
+}
+
 /* --- 2. Tablet Mid-range (40rem to 64rem) --- */
 @media (min-width: 40rem) {
   .overview-container {
