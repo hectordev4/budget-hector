@@ -12,10 +12,7 @@
 
   <div class="quotes-stack">
     @for (quote of filteredQuotes(); track quote.id) {
-      <div class="quote-display-card">
-        <h3>{{ quote.clientName }}</h3>
-        <p>{{ quote.totalPrice }} €</p>
-      </div>
+      <app-ongoing-card [quote]="quote"></app-ongoing-card>
     } @empty {
       <div class="empty-state">No s'ha trobat cap pressupost matching.</div>
     }
