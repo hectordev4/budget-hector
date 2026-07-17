@@ -1,6 +1,6 @@
 .board-container {
   width: 100%;
-  max-width: var(--max-width-content, 50rem);
+  max-width: var(--max-width-content);
   margin: 2rem auto;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -17,69 +17,8 @@
   font-family: sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-text-dark);
   margin: 0;
-}
-
-.actions-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.5rem;
-}
-
-/* Quick Search controls style */
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.search-icon {
-  font-size: 1rem;
-  color: var(--color-text-light, #666666);
-  transform: rotate(-45deg);
-}
-
-.search-box input {
-  border: none;
-  border-bottom: 0.0625rem solid var(--color-border-light, rgba(0,0,0,0.15));
-  font-family: sans-serif;
-  font-size: 0.9rem;
-  padding: 0.2rem;
-  outline: none;
-  width: 8rem;
-  transition: width 0.2s ease;
-}
-
-.search-box input:focus {
-  width: 12rem;
-  border-bottom-color: var(--color-text-main, #000000);
-}
-
-/* Text trigger sorting actions style */
-.sort-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.sort-links button {
-  background: none;
-  border: none;
-  font-family: sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text-light, #666666);
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-}
-
-.sort-links button.active {
-  color: var(--color-text-dark, #000000);
-  font-weight: 700;
 }
 
 /* --- Presentation Display Cards Stack --- */
@@ -90,9 +29,9 @@
 }
 
 .quote-display-card {
-  background-color: var(--color-bg-primary, #ffffff);
+  background-color: var(--color-bg-primary);
   border-radius: 1.5rem;
-  border: 0.0625rem solid var(--color-border-light, rgba(0, 0, 0, 0.06));
+  border: 0.0625rem solid var(--color-border-light);
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.03);
   padding: 1.75rem;
   display: flex;
@@ -110,14 +49,14 @@
   font-family: sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-text-dark);
   margin: 0 0 0.4rem 0;
 }
 
 .meta-text {
   font-family: sans-serif;
   font-size: 0.9rem;
-  color: var(--color-text-light, #666666);
+  color: var(--color-text-light);
   margin: 0 0 0.2rem 0;
 }
 
@@ -126,7 +65,7 @@
   font-family: sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-text-dark);
   margin: 0 0 0.5rem 0;
 }
 
@@ -139,15 +78,14 @@
 .services-info li {
   font-family: sans-serif;
   font-size: 0.95rem;
-  color: var(--color-text-main, #000000);
+  color: var(--color-text-main);
   margin-bottom: 0.3rem;
 }
 
 .service-details {
-  color: var(--color-text-muted, #555555);
+  color: var(--color-text-muted);
 }
 
-/* Numeric Calculation right block details */
 .financial-info {
   display: flex;
   flex-direction: column;
@@ -158,7 +96,7 @@
 .total-label {
   font-family: sans-serif;
   font-size: 0.9rem;
-  color: var(--color-text-light, #666666);
+  color: var(--color-text-light);
   font-weight: 600;
 }
 
@@ -166,7 +104,7 @@
   font-family: sans-serif;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-text-dark);
 }
 
 .currency {
@@ -177,7 +115,7 @@
 .empty-state {
   text-align: center;
   padding: 3rem;
-  color: var(--color-text-light, #666666);
+  color: var(--color-text-light);
   font-family: sans-serif;
 }
 

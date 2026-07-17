@@ -1,72 +1,23 @@
 <section class="board-container">
-  
-  <!-- Filter & Sort Action Toolbar -->
   <div class="board-header">
     <h2 class="board-title">Pressupostos en curs:</h2>
     
-    <div class="actions-toolbar">
-      <!-- Search wrapper -->
-      <div class="search-box">
-        <span class="search-icon">&#9094;</span>
-        <input 
-          type="text" 
-          placeholder="Buscar per nom..." 
-          (input)="onSearch($event)"
-        />
-      </div>
-
-      <!-- Sorting links -->
-      <div class="sort-links">
-        <button type="button" (click)="changeSort('date')" [class.active]="sortBy() === 'date'">
-          Data
-        </button>
-        <button type="button" (click)="changeSort('price')" [class.active]="sortBy() === 'price'">
-          Import <span class="arrow">{{ sortBy() === 'price' && !sortAscending() ? '▲' : '▼' }}</span>
-        </button>
-        <button type="button" (click)="changeSort('name')" [class.active]="sortBy() === 'name'">
-          Nom
-        </button>
-      </div>
-    </div>
+    <app-board-filters
+      [currentSortBy]="sortBy()"
+      [isSortAscending]="sortAscending()"
+      (searchChange)="searchQuery.set($event)"
+      (sortChange)="changeSort($event)">
+    </app-board-filters>
   </div>
 
-  <!-- Quotes Visual Stack -->
   <div class="quotes-stack">
     @for (quote of filteredQuotes(); track quote.id) {
       <div class="quote-display-card">
-        
-        <!-- Client Identity column -->
-        <div class="quote-col client-info">
-          <h3>{{ quote.clientName }}</h3>
-          <p class="meta-text">{{ quote.clientEmail }}</p>
-          <p class="meta-text">{{ quote.clientPhone }}</p>
-        </div>
-
-        <!-- Ordered Services column -->
-        <div class="quote-col services-info">
-          <h4>Serveis contractats:</h4>
-          <ul>
-            @for (service of quote.services; track service.name) {
-              <li>
-                • {{ service.name }} 
-                @if (service.details) {
-                  <span class="service-details">({{ service.details }})</span>
-                }
-              </li>
-            }
-          </ul>
-        </div>
-
-        <!-- Summary Cost column -->
-        <div class="quote-col financial-info">
-          <span class="total-label">Total:</span>
-          <span class="total-price">{{ quote.totalPrice }} <span class="currency">€</span></span>
-        </div>
-
+        <h3>{{ quote.clientName }}</h3>
+        <p>{{ quote.totalPrice }} €</p>
       </div>
     } @empty {
-      <div class="empty-state">No s'ha trobat cap pressupost que coincideixi amb la cerca.</div>
+      <div class="empty-state">No s'ha trobat cap pressupost matching.</div>
     }
   </div>
-
 </section>
