@@ -11,7 +11,7 @@ import { SavedQuote, SortType } from '../../models/SavedQuote';
   templateUrl: './ongoing-board.html',
   styleUrl: './ongoing-board.css'
 })
-export class OngoingBoardComponent {
+export class OngoingBoard {
   private quotesService = inject(OngoingQuotesService);
 
   searchQuery = signal<string>('');
