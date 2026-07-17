@@ -1,0 +1,85 @@
+[
+    {
+      "id": 1,
+      "clientName": "Ona Costa",
+      "clientEmail": "ona.costa@gmail.com",
+      "clientPhone": "666 666 666",
+      "totalPrice": 760,
+      "date": "2026-07-15",
+      "services": [
+        { "name": "Web", "details": "4 pàgines, 2 llenguatges" },
+        { "name": "SEO" }
+      ]
+    },
+    {
+      "id": 2,
+      "clientName": "Joan Farrés",
+      "clientEmail": "joan.farre@gmail.com",
+      "clientPhone": "666 666 666",
+      "totalPrice": 400,
+      "date": "2026-07-16",
+      "services": [
+        { "name": "Ads" },
+        { "name": "SEO" }
+      ]
+    },
+    {
+        "id": 3,
+        "clientName": "Marc Vila",
+        "clientEmail": "marc.vila@outlook.cat",
+        "clientPhone": "600 112 233",
+        "totalPrice": 520,
+        "date": "2026-07-10T10:30:00.000Z",
+        "services": [
+        { "name": "Web", "details": "2 pàgines, 1 llenguatge" },
+        { "name": "Ads" }
+        ]
+    },
+    {
+        "id": 4,
+        "clientName": "Laia Soler",
+        "clientEmail": "laia@solerestudi.com",
+        "clientPhone": "655 443 322",
+        "totalPrice": 1240,
+        "date": "2026-07-12T15:45:00.000Z",
+        "services": [
+        { "name": "Web", "details": "8 pàgines, 4 llenguatges" },
+        { "name": "SEO" },
+        { "name": "Ads" }
+        ]
+    },
+    {
+        "id": 5,
+        "clientName": "Pol Rovira",
+        "clientEmail": "pol.rovira@gmail.com",
+        "clientPhone": "677 889 900",
+        "totalPrice": 300,
+        "date": "2026-07-14T09:15:00.000Z",
+        "services": [
+        { "name": "SEO" }
+        ]
+    },
+    {
+        "id": 6,
+        "clientName": "Clara Sànchez",
+        "clientEmail": "clara.sanchez@ canva.cat",
+        "clientPhone": "622 554 433",
+        "totalPrice": 610,
+        "date": "2026-07-16T18:20:00.000Z",
+        "services": [
+        { "name": "Web", "details": "5 pàgines, 1 llenguatge" }
+        ]
+    },
+    {
+        "id": 7,
+        "clientName": "Albert Martí",
+        "clientEmail": "albert@marticonsultors.cat",
+        "clientPhone": "611 223 344",
+        "totalPrice": 700,
+        "date": "2026-07-17T11:00:00.000Z",
+        "services": [
+        { "name": "Ads" },
+        { "name": "SEO" }
+        ]
+    }
+]
