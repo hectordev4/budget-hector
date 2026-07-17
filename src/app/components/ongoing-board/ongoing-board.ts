@@ -1,23 +1,26 @@
-// src/app/components/ongoing-board/ongoing-board.component.ts
 import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OngoingQuotesService } from '../../services/ongoing-quotes.service';
-import { SavedQuote, SortType } from '../../models/SavedQuote';
+import { SortType } from '../../models/SavedQuote';
+import { BoardFilters } from '../board-filters/board-filters';
+import { OngoingCard } from '../ongoing-card/ongoing-card';
 
 @Component({
   selector: 'app-ongoing-board',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BoardFilters, OngoingCard], // <-- Must import the filter component here!
   templateUrl: './ongoing-board.html',
   styleUrl: './ongoing-board.css'
 })
-export class OngoingBoard {
+export class OngoingBoardComponent {
   private quotesService = inject(OngoingQuotesService);
 
+  // Core filter states linked to inputs
   searchQuery = signal<string>('');
   sortBy = signal<SortType>('name');
   sortAscending = signal<boolean>(true);
 
+  // Computes sorted + filtered values dynamically from the service's read-only signal
   filteredQuotes = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const currentSort = this.sortBy();
@@ -40,6 +43,7 @@ export class OngoingBoard {
     });
   });
 
+  // Method to change sorting strategy seamlessly
   changeSort(type: SortType): void {
     if (this.sortBy() === type) {
       this.sortAscending.update(val => !val);
@@ -47,10 +51,5 @@ export class OngoingBoard {
       this.sortBy.set(type);
       this.sortAscending.set(true);
     }
-  }
-
-  onSearch(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.searchQuery.set(input.value);
   }
 }

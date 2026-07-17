@@ -1,0 +1,35 @@
+<div class="actions-toolbar">
+  <!-- Search input box with Material Icon -->
+  <div class="search-box">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input 
+      type="text" 
+      placeholder="Buscar per nom..." 
+      (input)="onSearchInput($event)"
+    />
+  </div>
+
+  <!-- Sorting control trigger actions list -->
+  <div class="sort-links">
+    <button type="button" (click)="onSortClick('date')" [class.active]="currentSortBy() === 'date'">
+      Data 
+      @if (currentSortBy() === 'date') {
+        <span class="arrow">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+
+    <button type="button" (click)="onSortClick('price')" [class.active]="currentSortBy() === 'price'">
+      Import 
+      @if (currentSortBy() === 'price') {
+        <span class="arrow">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+
+    <button type="button" (click)="onSortClick('name')" [class.active]="currentSortBy() === 'name'">
+      Nom 
+      @if (currentSortBy() === 'name') {
+        <span class="arrow">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+  </div>
+</div>
