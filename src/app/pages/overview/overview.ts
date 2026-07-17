@@ -1,5 +1,6 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { ItemCard, CardSelectionState } from '../../components/card/card';
+import { BudgetSummary } from '../../components/budget-summary/budget-summary'; // Ensure path is correct
 import { Offer } from '../../models/Offer';
 import { SelectionDetails } from '../../models/SelectionDetails';
 import { OffersService } from '../../services/offers.service';
@@ -7,14 +8,13 @@ import { OffersService } from '../../services/offers.service';
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [ItemCard],
+  imports: [ItemCard, BudgetSummary],
   templateUrl: './overview.html',
-  styleUrls: ['./overview.css']
+  styleUrl: './overview.css',
 })
 export class Overview implements OnInit {
   private offersService = inject(OffersService);
 
-  // Initialize with an empty array
   offers = signal<Offer[]>([]);
   activeSelections = signal<Record<number, SelectionDetails>>({});
 
@@ -25,7 +25,6 @@ export class Overview implements OnInit {
     });
   }
 
-  // Calculated state and selection handlers remain completely unchanged!
   totalBudget = computed(() => {
     const selections = this.activeSelections();
     return this.offers().reduce((sum, offer) => {
