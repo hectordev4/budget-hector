@@ -1,0 +1,50 @@
+<section class="form-card-container">
+  <div class="form-card">
+    <h2 class="form-title">Demanar pressupost</h2>
+    
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-layout">
+      <!-- Name Input -->
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          placeholder="Nom"
+          [class.has-error]="userForm.get('name')?.touched && userForm.get('name')?.invalid"
+        />
+      </div>
+
+      <!-- Phone Input -->
+      <div class="input-wrapper">
+        <input 
+          type="tel" 
+          id="phone" 
+          formControlName="phone" 
+          placeholder="Telèfon"
+          [class.has-error]="userForm.get('phone')?.touched && userForm.get('phone')?.invalid"
+        />
+      </div>
+
+      <!-- Email Input -->
+      <div class="input-wrapper">
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email" 
+          placeholder="Email"
+          [class.has-error]="userForm.get('email')?.touched && userForm.get('email')?.invalid"
+        />
+      </div>
+
+      <!-- Action Button -->
+      <button 
+        type="submit" 
+        class="submit-btn" 
+        [disabled]="userForm.invalid"
+        [class.btn-active]="userForm.valid"
+      >
+        Sol·licitar pressupost &rarr;
+      </button>
+    </form>
+  </div>
+</section>

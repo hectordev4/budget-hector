@@ -13,9 +13,11 @@
       }
     </section>
   }
-  <section>
-    <app-budget-summary [total]="totalBudget()"></app-budget-summary>
-  </section>
+  
+  <app-budget-summary [total]="totalBudget()"></app-budget-summary>
+
+  <app-user-form (formSubmit)="onUserFormSubmit($event)"></app-user-form>
+
 </main>
 
 <footer>
