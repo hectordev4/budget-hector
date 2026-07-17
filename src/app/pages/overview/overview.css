@@ -32,41 +32,6 @@
   width: 100%;
 }
 
-.summary-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-top: 0.0625rem solid var(--color-border-light);
-  padding: 1.25rem 0;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-}
-
-.summary-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-.summary-label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-dark);
-}
-
-.summary-total {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--color-text-main);
-}
-
 /* --- 2. Tablet Mid-range (40rem to 64rem) --- */
 @media (min-width: 40rem) {
   .overview-container {
@@ -75,18 +40,6 @@
 
   .cards-list {
     gap: 1.25rem;
-  }
-
-  .summary-content {
-    padding: 0 1.5rem;
-  }
-
-  .summary-label {
-    font-size: 1.2rem;
-  }
-
-  .summary-total {
-    font-size: 2rem;
   }
 }
 
@@ -97,22 +50,7 @@
   }
 
   .banner-wrapper,
-  .cards-list,
-  .summary-content {
+  .cards-list{
     max-width: var(--max-width-content);
-  }
-
-  .summary-content {
-    justify-content: flex-end;
-    padding: 0 2rem;
-    gap: 1.5rem;
-  }
-
-  .summary-label {
-    font-size: 1.3rem;
-  }
-
-  .summary-total {
-    font-size: 2.2rem;
   }
 }
