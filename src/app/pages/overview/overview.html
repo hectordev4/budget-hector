@@ -13,11 +13,12 @@
       }
     </section>
   }
+  
+  <app-budget-summary [total]="totalBudget()"></app-budget-summary>
+
+  <app-user-form (formSubmit)="onUserFormSubmit($event)"></app-user-form>
+
 </main>
 
-<footer class="summary-footer">
-  <div class="summary-content">
-    <span class="summary-label">Preu pressuposat:</span>
-    <span class="summary-total">{{ totalBudget() }} €</span>
-  </div>
+<footer>
 </footer>

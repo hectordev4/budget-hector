@@ -1,4 +1,6 @@
-/* Container to handle centering the narrow card on the page */
+/* banner.css */
+
+/* --- 1. Mobile Default (< 40rem) --- */
 .banner-container {
   display: flex;
   justify-content: center;
@@ -10,17 +12,15 @@
 .promo-banner-card {
   position: relative;
   overflow: hidden;
-  background-color: #f7f6f3;
+  background-color: var(--color-bg-secondary);
   border-radius: 1.5rem;
   box-shadow: none;
   border: 0.0625rem solid rgba(0, 0, 0, 0.03);
   
-  /* Layout modifications using relative fluid measurements */
-  width: 80%;             /* Narrower card width relative to parent container */
-  max-width: 48rem;       /* Upper bound limit using rem (~768px) */
-  height: 22vh;           /* Taller height relative to the viewport height */
-  min-height: 11rem;      /* Prevents the card from collapsing on ultra-short viewports */
-  padding: 2.5rem 1.5rem !important; 
+  width: 95%;
+  height: 18vh;
+  min-height: 11rem;
+  padding: 2rem 1rem !important; 
   
   display: flex;
   align-items: center;
@@ -35,14 +35,14 @@
 
 .banner-text-content h1 {
   font-family: sans-serif;
-  font-size: 2.2rem;       /* Font scales cleanly based on root element */
+  font-size: 1.6rem;
   font-weight: 700;
-  color: #000000;
+  color: var(--color-text-main);
   margin: 0;
   letter-spacing: -0.05rem;
 }
 
-/* --- Background Blobs using relative percentages and rems --- */
+/* --- Decorative Shapes (Restored to your exact specs) --- */
 .decor-shape {
   position: absolute;
   border-radius: 50%;
@@ -53,10 +53,10 @@
 .shape-orange {
   top: -1.25rem;
   left: 50%;
-  transform: translateX(-50%) rotate(15deg); /* Fluid horizontal centering */
+  transform: translateX(-50%) rotate(15deg);
   width: 5rem;
   height: 2.5rem;
-  background-color: #ff8a5c;
+  background-color: var(--color-brand-orange);
   border-radius: 2.5rem;
 }
 
@@ -65,7 +65,7 @@
   left: -1rem;
   width: 5.5rem;
   height: 5.5rem;
-  background-color: #f5d061;
+  background-color: var(--color-brand-yellow);
 }
 
 .shape-green {
@@ -73,20 +73,33 @@
   right: 18%;
   width: 4.2rem;
   height: 4.8rem;
-  background-color: #4e9f6d;
+  background-color: var(--color-brand-green);
   transform: rotate(-20deg);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
-/* Responsive Scaling for smaller screen environments */
-@media (max-width: 48rem) {
+/* --- 2. Tablet Mid-range (40rem to 64rem) --- */
+@media (min-width: 40rem) {
   .promo-banner-card {
-    width: 95%;
-    height: 18vh;
-    padding: 2rem 1rem !important;
+    width: 90%;
+    height: 20vh;
   }
-  
+
   .banner-text-content h1 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+  }
+}
+
+/* --- 3. Desktop Large Screen (>= 64rem) --- */
+@media (min-width: 64rem) {
+  .promo-banner-card {
+    width: 80%;
+    max-width: var(--max-width-content);
+    height: 22vh;
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .banner-text-content h1 {
+    font-size: 2.2rem;
   }
 }
