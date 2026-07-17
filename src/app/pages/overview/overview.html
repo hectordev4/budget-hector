@@ -14,11 +14,16 @@
     </section>
   }
   
+  <!-- Current selection cost summary calculation -->
   <app-budget-summary [total]="totalBudget()"></app-budget-summary>
 
+  <!-- Form for inputs configuration -->
   <app-user-form (formSubmit)="onUserFormSubmit($event)"></app-user-form>
 
-</main>
+  <!-- Section divider matching the mockup -->
+  <hr class="section-divider" />
 
-<footer>
-</footer>
+  <!-- Ongoing board displaying previous processed requests -->
+  <app-ongoing-board></app-ongoing-board>
+
+</main>
