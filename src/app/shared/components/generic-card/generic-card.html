@@ -1,27 +1,28 @@
 <mat-card [class.card-selected]="isSelected()" class="custom-service-card">
   <div class="card-layout-wrapper">
     
-    <!-- Left Section: Content Shell -->
     <div class="card-main-content">
       <mat-card-header>
         <mat-card-title>{{ title() }}</mat-card-title>
-        <mat-card-subtitle>{{ description() }}</mat-card-subtitle>
       </mat-card-header>
+      <mat-card-subtitle>{{ description() }}</mat-card-subtitle>
 
-      <!-- Anything wrapped in <mat-card-content> from the outside drops here -->
+      <!-- Outside projected details drop here -->
       <ng-content select="mat-card-content"></ng-content>
     </div>
 
-    <!-- Right Section: Price & Action Sidebar -->
     <div class="card-action-sidebar">
       <span class="price-display">{{ price() }}€</span>
       
-      <mat-checkbox 
-        [checked]="isSelected()" 
-        (change)="toggleSelection()"
-        class="custom-card-checkbox">
-        Afegir
-      </mat-checkbox>
+      <!-- Checkbox is now optional! -->
+      @if (showCheckbox()) {
+        <mat-checkbox 
+          [checked]="isSelected()" 
+          (change)="toggleSelection()"
+          class="custom-card-checkbox">
+          Afegir
+        </mat-checkbox>
+      }
     </div>
 
   </div>

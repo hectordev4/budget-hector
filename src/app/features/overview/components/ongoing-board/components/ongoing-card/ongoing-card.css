@@ -1,0 +1,33 @@
+.contracted-services-list {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.0625rem dashed var(--color-border-light);
+}
+
+.services-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.services-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.service-item {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+}
+
+.service-details {
+  color: var(--color-text-muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}

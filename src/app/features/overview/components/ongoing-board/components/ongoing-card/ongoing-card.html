@@ -1,0 +1,22 @@
+<app-generic-card 
+  [title]="quote().clientName" 
+  [description]="quote().clientEmail + ' | ' + quote().clientPhone" 
+  [price]="quote().totalPrice"
+  [showCheckbox]="false">
+  
+  <!-- Content Projection for unique ongoing board data -->
+  <div class="contracted-services-list">
+    <h4 class="services-heading">Serveis Contractats:</h4>
+    <ul class="services-items">
+      @for (service of quote().services; track service.name) {
+        <li class="service-item">
+          <strong class="service-name">{{ service.name }}</strong>
+          @if (service.details) {
+            <span class="service-details">({{ service.details }})</span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+
+</app-generic-card>

@@ -1,3 +1,33 @@
+.board-container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 2rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.board-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.board-title {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+/* --- Presentation Display Cards Stack --- */
+.quotes-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .quote-display-card {
   background-color: var(--color-bg-primary);
   border-radius: 1.5rem;
@@ -8,7 +38,6 @@
   flex-direction: column;
   gap: 1.5rem;
   box-sizing: border-box;
-  width: 100%;
 }
 
 .quote-col {
@@ -83,8 +112,22 @@
   font-weight: 600;
 }
 
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-light);
+  font-family: sans-serif;
+}
+
 /* --- Responsive Adaptations --- */
 @media (min-width: 40rem) {
+  .board-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem
+  }
+  
   .quote-display-card {
     flex-direction: row;
     justify-content: space-between;
@@ -95,5 +138,11 @@
   .financial-info {
     align-items: flex-end;
     text-align: right;
+  }
+}
+
+@media (min-width: 64rem) {
+  .board-header {
+    gap: 2rem;
   }
 }

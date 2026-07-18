@@ -4,13 +4,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
   box-sizing: border-box;
 }
 
 .form-card {
   width: 100%;
-  max-width: var(--max-width-content, 50rem);
   background-color: var(--color-bg-primary, #ffffff);
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.04);
@@ -21,21 +20,34 @@
 
 .form-title {
   font-family: sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--color-text-dark, #1a1a1a);
   margin: 0 0 1.25rem 0;
 }
 
-/* Default vertical layout for mobile */
 .form-layout {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  position: relative;
+}
+
+.form-group label {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-dark, #333333);
 }
 
 .input-wrapper {
-  position: relative;
   width: 100%;
 }
 
@@ -68,11 +80,17 @@
   box-shadow: 0 0 0 0.15rem rgba(255, 92, 92, 0.1);
 }
 
+.error-text {
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  color: #ff5c5c;
+  margin-top: 0.1rem;
+}
+
 .submit-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   width: 100%;
   padding: 0.85rem 1.5rem;
   font-family: sans-serif;
@@ -81,8 +99,9 @@
   border: none;
   border-radius: 0.75rem;
   cursor: not-allowed;
-  background-color: #a7d3b8; 
+  background-color: #d1e7da; 
   color: #ffffff;
+  margin-top: 0.5rem;
   transition: background-color var(--transition-smooth, 0.2s ease), transform var(--transition-smooth, 0.1s ease);
 }
 
@@ -93,57 +112,44 @@
 
 .submit-btn.btn-active:hover {
   background-color: #438a5e;
-  transform: translateY(-0.05rem);
 }
 
 /* --- 2. Tablet Mid-range (40rem to 64rem) --- */
-@media (min-width: 40rem) and (max-width: 63.9375rem) {
+@media (min-width: 40rem) {
   .form-card {
     padding: 2rem;
-    /* 100% width with no upper restrictions allows it to grow perfectly with the viewport */
-    width: 100%;
-    max-width: none; 
   }
 
   .form-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Keeps items stacked vertically while stretching them to full card width */
-  .form-layout {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.25rem;
-  }
-
-  .submit-btn {
-    width: 100%;
+    font-size: 1.5rem;
   }
 }
 
 /* --- 3. Desktop Large Screen (>= 64rem) --- */
 @media (min-width: 64rem) {
-  .form-card {
-    padding: 2.5rem;
-    width: 100%;
-    max-width: var(--max-width-content, 50rem);
-  }
-
-  /* Snaps to the horizontal row flow for spacious desktop viewing */
   .form-layout {
     flex-direction: row;
-    align-items: center;
-    gap: 0.75rem;
+    align-items: flex-end;
+    gap: 1rem;
   }
 
-  .input-wrapper {
+  .form-group {
     flex: 1;
+    margin-bottom: 1.2rem; 
+  }
+
+  .error-text {
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0;
+    margin-top: 0;
   }
 
   .submit-btn {
     width: auto;
     white-space: nowrap;
     padding: 0.8rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem; 
   }
 }

@@ -14,6 +14,7 @@ export class GenericCard {
   description = input.required<string>();
   price = input.required<number>();
   isSelected = input<boolean>(false);
+  showCheckbox = input<boolean>(true);
 
   selectionChange = output<boolean>();
 

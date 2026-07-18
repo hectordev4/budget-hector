@@ -1,8 +1,8 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { OfferList, OfferListStateChange } from './components/offer-list/offer-list';
-import { BudgetSummary } from '@features/budget-summary/budget-summary';
-import { UserForm } from '@features/user-form/user-form';
-import { OngoingBoard } from '@features/ongoing-board/ongoing-board';
+import { BudgetSummary } from './components/budget-summary/budget-summary';
+import { UserForm } from './components/user-form/user-form';
+import { OngoingBoard } from './components/ongoing-board/ongoing-board';
 import { Offer } from '@models/Offer';
 import { SelectionDetails } from '@models/SelectionDetails';
 import { UserFormData } from '@models/UserFormData';

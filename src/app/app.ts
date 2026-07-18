@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Banner } from './components/banner/banner';
-import { Overview } from './pages/overview/overview';
+import { Banner } from './features/banner/banner';
+import { Overview } from './features/overview/overview';
 
 @Component({
   selector: 'app-root',

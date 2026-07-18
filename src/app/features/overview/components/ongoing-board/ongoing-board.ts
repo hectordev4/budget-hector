@@ -1,6 +1,6 @@
 import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OngoingQuotesService } from '../../services/ongoing-quotes.service';
+import { OngoingQuotesService } from '@services/ongoing-quotes.service';
 import { SortType } from './ongoing-board.types';
 import { BoardFilters } from './components/board-filters/board-filters';
 import { OngoingCard } from './components/ongoing-card/ongoing-card';
