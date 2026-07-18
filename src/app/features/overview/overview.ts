@@ -1,5 +1,5 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
-import { ItemCard, CardSelectionState } from '@features/card/card';
+import { OfferList, OfferListStateChange } from './components/offer-list/offer-list';
 import { BudgetSummary } from '@features/budget-summary/budget-summary';
 import { UserForm } from '@features/user-form/user-form';
 import { OngoingBoard } from '@features/ongoing-board/ongoing-board';
@@ -13,7 +13,7 @@ import { OngoingQuotesService } from '@services/ongoing-quotes.service';
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [ItemCard, BudgetSummary, UserForm, OngoingBoard],
+  imports: [OfferList, BudgetSummary, UserForm, OngoingBoard],
   templateUrl: './overview.html',
   styleUrl: './overview.css',
 })
@@ -31,7 +31,6 @@ export class Overview implements OnInit {
     });
   }
 
-
   totalBudget = computed(() => {
     const selections = this.activeSelections();
     return this.offers().reduce((sum, offer) => {
@@ -45,43 +44,41 @@ export class Overview implements OnInit {
     }, 0);
   });
 
-  onCardSelectionChange(offerId: number, event: CardSelectionState): void {
+  handleOfferStateChange(payload: { offerId: number; state: OfferListStateChange }): void {
     this.activeSelections.update(current => {
       const updated = { ...current };
-      if (event.selected) {
-        updated[offerId] = { pages: event.pages, languages: event.languages };
+      if (payload.state.selected) {
+        updated[payload.offerId] = { 
+          pages: payload.state.pages, 
+          languages: payload.state.languages 
+        };
       } else {
-        delete updated[offerId];
+        delete updated[payload.offerId];
       }
       return updated;
     });
   }
 
-  // Intercepts the form submission, maps data models, and updates state
   onUserFormSubmit(formData: UserFormData): void {
     const selections = this.activeSelections();
     
-    // 1. Map active selections to the ContractedService format required by our ongoing list
     const contractedServices: ContractedService[] = this.offers()
       .filter(offer => !!selections[offer.id])
       .map(offer => {
         const details = selections[offer.id];
-        const service: ContractedService = { name: offer.title }; // assuming offer has a name property
+        const service: ContractedService = { name: offer.title };
         
-        // If web service has customizable deep options, generate details string dynamically
         if (offer.hasOptions && details) {
           service.details = `${details.pages} pàgines, ${details.languages} llenguatges`;
         }
         return service;
       });
 
-    // Guard to ensure they aren't submitting an empty request
     if (contractedServices.length === 0) {
       alert('Si us plau, selecciona almenys un servei abans de demanar un pressupost.');
       return;
     }
 
-    // 2. Push unified data structure straight to our storage service
     this.ongoingQuotesService.addQuote({
       clientName: formData.name,
       clientEmail: formData.email,
@@ -90,7 +87,6 @@ export class Overview implements OnInit {
       totalPrice: this.totalBudget()
     });
 
-    // 3. Reset local selection state back to empty
     this.activeSelections.set({});
   }
 }

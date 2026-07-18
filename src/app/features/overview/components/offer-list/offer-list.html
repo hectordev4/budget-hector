@@ -1,0 +1,48 @@
+<div class="offers-container-grid">
+  @for (offer of offers(); track offer.id) {
+    <app-generic-card 
+      [title]="offer.title" 
+      [description]="offer.description" 
+      [price]="offer.price"
+      [isSelected]="!!activeSelections()[offer.id]"
+      (selectionChange)="toggleSelection(offer, $event)">
+      
+      <!-- Accordion projection inside the generic shell content block -->
+      @if (offer.hasOptions && !!activeSelections()[offer.id]) {
+        <mat-card-content class="accordion-panel">
+          
+          <!-- Pages Counter Controls -->
+          <div class="counter-row">
+            <div class="label-with-modal">
+              <span class="counter-label">Nombre de pàgines</span>
+              <button type="button" mat-icon-button (click)="openHelp('pages')" class="info-trigger-btn">
+                <mat-icon>info</mat-icon>
+              </button>
+            </div>
+            <div class="counter-controls">
+              <button mat-mini-fab (click)="updatePages(offer, -1)" class="action-count-btn">-</button>
+              <span class="counter-value">{{ getPages(offer.id) }}</span>
+              <button mat-mini-fab (click)="updatePages(offer, 1)" class="action-count-btn">+</button>
+            </div>
+          </div>
+
+          <!-- Languages Counter Controls -->
+          <div class="counter-row">
+            <div class="label-with-modal">
+              <span class="counter-label">Nombre de llenguatges</span>
+              <button type="button" mat-icon-button (click)="openHelp('languages')" class="info-trigger-btn">
+                <mat-icon>info</mat-icon>
+              </button>
+            </div>
+            <div class="counter-controls">
+              <button mat-mini-fab (click)="updateLanguages(offer, -1)" class="action-count-btn">-</button>
+              <span class="counter-value">{{ getLanguages(offer.id) }}</span>
+              <button mat-mini-fab (click)="updateLanguages(offer, 1)" class="action-count-btn">+</button>
+            </div>
+          </div>
+
+        </mat-card-content>
+      }
+    </app-generic-card>
+  }
+</div>
