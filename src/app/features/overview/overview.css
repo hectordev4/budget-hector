@@ -1,5 +1,3 @@
-/* overview.css */
-
 /* --- 1. Mobile Default (< 40rem) --- */
 .overview-container {
   display: flex;
@@ -28,13 +26,9 @@
   width: 100%;
 }
 
-.banner-wrapper {
-  width: 100%;
-}
-
 .section-divider {
   border: 0;
-  border-top: 0.0625rem dashed var(--color-border-light, rgba(0,0,0,0.15));
+  border-top: 0.0625rem dashed var(--color-border-light, rgba(0, 0, 0, 0.15));
   margin: 3rem 0;
   width: 100%;
 }
@@ -56,8 +50,7 @@
     padding: 2rem 2rem 8rem 2rem;
   }
 
-  .banner-wrapper,
-  .cards-list{
+  .cards-list {
     max-width: var(--max-width-content);
   }
 }

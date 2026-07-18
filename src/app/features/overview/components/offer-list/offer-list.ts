@@ -1,10 +1,10 @@
 import { Component, input, output, signal, inject } from '@angular/core';
-import { GenericCard } from '../../shared/components/generic-card/generic-card';
+import { GenericCard } from '@shared/components/generic-card/generic-card';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
-import { InfoModal } from '../../shared/components/info-modal/info-modal';
+import { InfoModal } from '@shared/components/info-modal/info-modal';
 import { Offer } from '@models/Offer';
 import { SelectionDetails } from '@models/SelectionDetails';
 
@@ -77,7 +77,8 @@ export class OfferList {
 
     this.dialog.open(InfoModal, {
       data: configs[metric],
-      width: '400px'
+      width: '30rem',
+      maxWidth: '90vw'
     });
   }
 
