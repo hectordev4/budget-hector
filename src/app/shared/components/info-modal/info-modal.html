@@ -1,9 +1,18 @@
-<div class="modal-backdrop" (click)="onClose()">
-  <!-- Stop click propagation so clicking inside the white card doesn't close it -->
-  <div class="modal-card" (click)="$event.stopPropagation()">
-    <button class="close-btn" (click)="onClose()">×</button>
-    
-    <h2 class="modal-title">{{ title() }}</h2>
-    <p class="modal-description">{{ description() }}</p>
+<div class="modal-container">
+  <div class="modal-header-wrapper">
+    <h2 mat-dialog-title class="modal-title">{{ data.title }}</h2>
+    <button type="button" mat-icon-button (click)="close()" class="close-btn">
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
+
+  <mat-dialog-content class="modal-body-content">
+    <p>{{ data.description }}</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="modal-actions-panel">
+    <button mat-flat-button (click)="close()" class="modal-confirm-btn">
+      D'acord
+    </button>
+  </mat-dialog-actions>
 </div>
