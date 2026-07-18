@@ -1,7 +1,7 @@
 import { Component, input, output, signal, effect } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { BudgetCheckbox } from '../checkbox/checkbox';
-import { Offer } from '../../models/Offer';
+import { BudgetCheckbox } from './components/checkbox/checkbox';
+import { Offer } from '@models/Offer';
 
 // Define the shape of the emitted output data to support the parent's budget math
 export interface CardSelectionState {

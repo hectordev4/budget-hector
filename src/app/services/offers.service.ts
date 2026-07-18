@@ -6,10 +6,11 @@ import { Offer } from '../models/Offer';
 @Injectable({
   providedIn: 'root'
 })
+
 export class OffersService {
   private http = inject(HttpClient);
   
-  private jsonUrl = 'data/MockData.json'; 
+  private jsonUrl = 'data/OffersData.json'; 
 
   getOffers(): Observable<Offer[]> {
     return this.http.get<Offer[]>(this.jsonUrl);

@@ -1,0 +1,20 @@
+<section class="board-container">
+  <div class="board-header">
+    <h2 class="board-title">Pressupostos en curs:</h2>
+    
+    <app-board-filters
+      [currentSortBy]="sortBy()"
+      [isSortAscending]="sortAscending()"
+      (searchChange)="searchQuery.set($event)"
+      (sortChange)="changeSort($event)">
+    </app-board-filters>
+  </div>
+
+  <div class="quotes-stack">
+    @for (quote of filteredQuotes(); track quote.id) {
+      <app-ongoing-card [quote]="quote"></app-ongoing-card>
+    } @empty {
+      <div class="empty-state">No s'ha trobat cap pressupost matching.</div>
+    }
+  </div>
+</section>

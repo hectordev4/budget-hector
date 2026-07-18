@@ -1,0 +1,1 @@
+export type SortType = 'date' | 'price' | 'name';
