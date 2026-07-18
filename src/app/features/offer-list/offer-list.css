@@ -1,0 +1,73 @@
+/* --- 1. Mobile Default (< 40rem) --- */
+.offers-container-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.accordion-panel {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 0.0625rem solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label-with-modal {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.counter-label {
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.info-trigger-btn {
+  color: var(--color-text-muted);
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.action-count-btn {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-dark);
+  box-shadow: none;
+}
+
+.counter-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 1.5rem;
+  text-align: center;
+  color: var(--color-text-dark);
+}
+
+/* --- 2. Tablet Mid-range (40rem to 64rem) --- */
+@media (min-width: 40rem) {
+  .offers-container-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* --- 3. Desktop Large Screen (>= 64rem) --- */
+@media (min-width: 64rem) {
+  .offers-container-grid {
+    width: 100%;
+    max-width: var(--max-width-content);
+  }
+}
