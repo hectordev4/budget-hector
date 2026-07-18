@@ -9,10 +9,7 @@ export class OngoingQuotesService {
   private http = inject(HttpClient);
   private jsonUrl = 'data/QuotesData.json'; 
 
-  // Core internal state signal
   private quotesSignal = signal<SavedQuote[]>([]);
-  
-  // Public read-only signal for your components to bind to reactively
   quotes = this.quotesSignal.asReadonly();
 
   constructor() {
@@ -32,15 +29,34 @@ export class OngoingQuotesService {
     });
   }
 
-  // Appends a new quote instantly in memory
   addQuote(newQuote: Omit<SavedQuote, 'id' | 'date'>): void {
     this.quotesSignal.update(currentQuotes => [
       ...currentQuotes,
       {
         ...newQuote,
         id: currentQuotes.length + 1,
-        date: new Date() // Sets timestamp to right now
+        date: new Date()
       }
     ]);
+  }
+
+  
+  generateQuoteHash(quote: SavedQuote): string {
+    const formattedDate = quote.date instanceof Date 
+      ? quote.date.toLocaleDateString() 
+      : new Date(quote.date).toLocaleDateString();
+
+    const dataPayload = {
+      n: quote.clientName,
+      e: quote.clientEmail,
+      p: quote.clientPhone,
+      d: formattedDate,
+      s: quote.services.map(s => ({ t: s.name, de: s.details })),
+      t: quote.totalPrice
+    };
+
+    const jsonStr = JSON.stringify(dataPayload);
+
+    return btoa(encodeURIComponent(jsonStr));
   }
 }
