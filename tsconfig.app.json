@@ -10,7 +10,8 @@
       "baseUrl": ["./"],
       "@features/*": ["./src/app/features/*"],
       "@models/*": ["./src/app/models/*"],
-      "@services/*": ["./src/app/services/*"]
+      "@services/*": ["./src/app/services/*"],
+      "@shared/*": ["./src/app/shared/*"]
     }
   },
   "include": [
