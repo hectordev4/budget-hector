@@ -1,50 +1,53 @@
-<section class="form-card-container">
-  <div class="form-card">
-    <h2 class="form-title">Demanar pressupost</h2>
-    
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-layout">
-      <!-- Name Input -->
-      <div class="input-wrapper">
-        <input 
-          type="text" 
-          id="name" 
-          formControlName="name" 
-          placeholder="Nom"
-          [class.has-error]="userForm.get('name')?.touched && userForm.get('name')?.invalid"
-        />
-      </div>
-
-      <!-- Phone Input -->
-      <div class="input-wrapper">
-        <input 
-          type="tel" 
-          id="phone" 
-          formControlName="phone" 
-          placeholder="Telèfon"
-          [class.has-error]="userForm.get('phone')?.touched && userForm.get('phone')?.invalid"
-        />
-      </div>
-
-      <!-- Email Input -->
-      <div class="input-wrapper">
-        <input 
-          type="email" 
-          id="email" 
-          formControlName="email" 
-          placeholder="Email"
-          [class.has-error]="userForm.get('email')?.touched && userForm.get('email')?.invalid"
-        />
-      </div>
-
-      <!-- Action Button -->
-      <button 
-        type="submit" 
-        class="submit-btn" 
-        [disabled]="userForm.invalid"
-        [class.btn-active]="userForm.valid"
-      >
-        Sol·licitar pressupost &rarr;
-      </button>
-    </form>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form-container">
+  
+  <!-- Name Input Control -->
+  <div class="form-group">
+    <label for="name">Nom:</label>
+    <input 
+      id="name" 
+      type="text" 
+      formControlName="name" 
+      placeholder="Introdueix el teu nom"
+    />
+    @if (userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+      <small class="error-text">El nom és obligatori.</small>
+    }
   </div>
-</section>
+
+  <!-- Email Input Control -->
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input 
+      id="email" 
+      type="email" 
+      formControlName="email" 
+      placeholder="Introdueix el teu email"
+    />
+    @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+      <small class="error-text">Introdueix un email vàlid.</small>
+    }
+  </div>
+
+  <!-- Phone Input Control -->
+  <div class="form-group">
+    <label for="phone">Telèfon:</label>
+    <input 
+      id="phone" 
+      type="tel" 
+      formControlName="phone" 
+      placeholder="Introdueix el teu telèfon"
+    />
+    @if (userForm.get('phone')?.invalid && userForm.get('phone')?.touched) {
+      <small class="error-text">El telèfon és obligatori.</small>
+    }
+  </div>
+
+  <!-- Submit Action Button -->
+  <button 
+    type="submit" 
+    [disabled]="userForm.invalid" 
+    class="submit-btn">
+    Sol·licitar Pressupost
+  </button>
+
+</form>

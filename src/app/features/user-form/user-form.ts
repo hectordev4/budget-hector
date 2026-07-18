@@ -1,6 +1,6 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators, NonNullableFormBuilder } from '@angular/forms';
 import { UserFormData } from '@models/UserFormData';
 
 @Component({
@@ -11,20 +11,24 @@ import { UserFormData } from '@models/UserFormData';
   styleUrl: './user-form.css'
 })
 export class UserForm {
-  userForm: FormGroup;
+  private fb = inject(NonNullableFormBuilder);
+  
   formSubmit = output<UserFormData>();
 
-  constructor(private fb: FormBuilder) {
-    this.userForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      phone: ['', [Validators.required, Validators.pattern(/^[+]?[0-9\s-]{9,15}$/)]],
-      email: ['', [Validators.required, Validators.email]]
-    });
-  }
+  // Build the underlying form controls group contract
+  userForm = this.fb.group({
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required]]
+  });
 
   onSubmit(): void {
-    if (this.userForm.valid) {
-      this.formSubmit.emit(this.userForm.value);
-    }
+    if (this.userForm.invalid) return;
+
+    // 1. Send the strongly typed form value upstream
+    this.formSubmit.emit(this.userForm.getRawValue());
+
+    // 2. Wipe all fields completely clean and reset the dirty/touched validations status
+    this.userForm.reset();
   }
 }
