@@ -1,6 +1,6 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { OfferList, OfferListStateChange } from './components/offer-list/offer-list';
-import { BudgetSummary } from './components/budget-summary/budget-summary';
+import { BudgetSummary, SelectedService } from './components/budget-summary/budget-summary';
 import { UserForm } from './components/user-form/user-form';
 import { OngoingBoard } from './components/ongoing-board/ongoing-board';
 import { Offer } from '@models/Offer';
@@ -31,17 +31,30 @@ export class Overview implements OnInit {
     });
   }
 
-  totalBudget = computed(() => {
+  // Maps active selections into an itemized array for the breakdown summary
+  selectedServices = computed<SelectedService[]>(() => {
     const selections = this.activeSelections();
-    return this.offers().reduce((sum, offer) => {
-      if (!selections[offer.id]) return sum;
-      let offerTotal = offer.price;
-      if (offer.hasOptions) {
+    
+    return this.offers()
+      .filter(offer => !!selections[offer.id])
+      .map(offer => {
         const details = selections[offer.id];
-        offerTotal += (details.pages + details.languages) * 30;
-      }
-      return sum + offerTotal;
-    }, 0);
+        let calculatedPrice = offer.price;
+
+        if (offer.hasOptions && details) {
+          calculatedPrice += (details.pages + details.languages) * 30;
+        }
+
+        return {
+          title: offer.title,
+          price: calculatedPrice
+        };
+      });
+  });
+
+  // Automatically derives the total sum directly from the itemized array
+  totalBudget = computed(() => {
+    return this.selectedServices().reduce((sum, item) => sum + item.price, 0);
   });
 
   handleOfferStateChange(payload: { offerId: number; state: OfferListStateChange }): void {

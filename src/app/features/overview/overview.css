@@ -7,6 +7,7 @@
   background-color: var(--color-bg-primary);
   padding: 1rem 0.5rem 7rem 0.5rem;
   box-sizing: border-box;
+  gap: 1rem;
 }
 
 .loading-spinner {
@@ -28,7 +29,7 @@
 .section-divider {
   border: 0;
   border-top: 0.0625rem dashed var(--color-border-light);
-  margin: 3rem 0;
+  margin: 1rem 0;
   width: 100%;
 }
 

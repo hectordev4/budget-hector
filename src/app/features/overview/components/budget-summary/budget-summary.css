@@ -1,25 +1,66 @@
 .summary-section {
-  position: sticky;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
-  border-top: var(--global-border);
   box-shadow: var(--global-box-shadow);
-  margin: 4rem 0;
-  padding: 1.25rem 0;
-  z-index: 10;
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
 }
 
 .summary-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 0 1rem;
-  gap: 1rem;
+  gap: 1.25rem;
   box-sizing: border-box;
+}
+
+.summary-breakdown {
+  width: 100%;
+}
+
+.breakdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.breakdown-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.breakdown-item-title {
+  font-weight: 500;
+}
+
+.breakdown-item-price {
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.breakdown-empty {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.summary-total-wrapper {
+  width: 100%;
+  border-top: 0.0625rem dashed var(--color-border-light);
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .summary-label {
@@ -49,20 +90,15 @@
 }
 
 @media (min-width: 64rem) {
-  .summary-section {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-  }
-
   .summary-content {
     max-width: var(--max-width-content);
-    justify-content: flex-end;
     padding: 0 2rem;
+    gap: 1.5rem;
   }
 
   .summary-label {
     font-size: 1.3rem;
+    white-space: nowrap;
   }
 
   .summary-total {
