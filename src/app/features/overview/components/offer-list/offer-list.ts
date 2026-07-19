@@ -24,14 +24,11 @@ export interface OfferListStateChange {
 export class OfferList {
   private dialog = inject(MatDialog);
 
-  // Inputs received from the parent Overview cockpit
   offers = input.required<Offer[]>();
   activeSelections = input.required<Record<number, SelectionDetails>>();
 
-  // Emits changes back up to Overview to keep the source of truth synchronized
   offerStateChange = output<{ offerId: number; state: OfferListStateChange }>();
 
-  // Internal component signal track states for pages/languages before selection emission
   pagesState = signal<Record<number, number>>({});
   languagesState = signal<Record<number, number>>({});
 

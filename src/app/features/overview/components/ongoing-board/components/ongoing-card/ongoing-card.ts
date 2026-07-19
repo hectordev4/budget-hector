@@ -18,6 +18,5 @@ export class OngoingCard {
   
   quote = input.required<SavedQuote>();
 
-  // Computes the Base64 hash dynamically whenever the quote changes
   quoteHash = computed(() => this.quotesService.generateQuoteHash(this.quote()));
 }

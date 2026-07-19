@@ -7,6 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './budget-summary.css'
 })
 export class BudgetSummary {
-  // Read-only input signal for the total budget
   total = input.required<number>();
 }

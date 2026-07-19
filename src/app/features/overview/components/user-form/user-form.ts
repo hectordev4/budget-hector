@@ -15,7 +15,6 @@ export class UserForm {
   
   formSubmit = output<UserFormData>();
 
-  // Build the underlying form controls group contract
   userForm = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
@@ -25,10 +24,8 @@ export class UserForm {
   onSubmit(): void {
     if (this.userForm.invalid) return;
 
-    // 1. Send the strongly typed form value upstream
     this.formSubmit.emit(this.userForm.getRawValue());
 
-    // 2. Wipe all fields completely clean and reset the dirty/touched validations status
     this.userForm.reset();
   }
 }

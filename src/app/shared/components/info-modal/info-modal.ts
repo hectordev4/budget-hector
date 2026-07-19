@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './info-modal.css'
 })
 export class InfoModal {
-  // Inject Material Dialog helpers to grab input data and manage closing
+
   dialogRef = inject(MatDialogRef<InfoModal>);
   data = inject<{ title: string; description: string }>(MAT_DIALOG_DATA);
 

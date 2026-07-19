@@ -42,7 +42,7 @@ export class OngoingQuotesService {
 
   
   generateQuoteHash(quote: SavedQuote): string {
-  // Ensure we get a clean, predictable DD/MM/YYYY string format
+
     const targetDate = quote.date instanceof Date ? quote.date : new Date(quote.date);
     
     const day = String(targetDate.getDate()).padStart(2, '0');

@@ -15,12 +15,10 @@ import { OngoingCard } from './components/ongoing-card/ongoing-card';
 export class OngoingBoard {
   private quotesService = inject(OngoingQuotesService);
 
-  // Core filter states linked to inputs
   searchQuery = signal<string>('');
   sortBy = signal<SortType>('name');
   sortAscending = signal<boolean>(true);
 
-  // Computes sorted + filtered values dynamically from the service's read-only signal
   filteredQuotes = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const currentSort = this.sortBy();
@@ -43,7 +41,6 @@ export class OngoingBoard {
     });
   });
 
-  // Method to change sorting strategy seamlessly
   changeSort(type: SortType): void {
     if (this.sortBy() === type) {
       this.sortAscending.update(val => !val);
