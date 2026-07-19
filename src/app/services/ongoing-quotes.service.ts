@@ -42,21 +42,28 @@ export class OngoingQuotesService {
 
   
   generateQuoteHash(quote: SavedQuote): string {
-    const formattedDate = quote.date instanceof Date 
-      ? quote.date.toLocaleDateString() 
-      : new Date(quote.date).toLocaleDateString();
+  // Ensure we get a clean, predictable DD/MM/YYYY string format
+    const targetDate = quote.date instanceof Date ? quote.date : new Date(quote.date);
+    
+    const day = String(targetDate.getDate()).padStart(2, '0');
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const year = targetDate.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
 
     const dataPayload = {
       n: quote.clientName,
       e: quote.clientEmail,
       p: quote.clientPhone,
       d: formattedDate,
-      s: quote.services.map(s => ({ t: s.name, de: s.details })),
-      t: quote.totalPrice
+      t: quote.totalPrice,
+      s: quote.services.map(s => ({
+        t: s.name,
+        base: s.basePrice,
+        pages: s.pages || 0,
+        langs: s.languages || 0
+      }))
     };
 
-    const jsonStr = JSON.stringify(dataPayload);
-
-    return btoa(encodeURIComponent(jsonStr));
+    return btoa(encodeURIComponent(JSON.stringify(dataPayload)));
   }
 }

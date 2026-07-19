@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Banner } from './features/banner/banner';
-import { Overview } from './features/overview/overview';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Banner, Overview],
+  imports: [Banner, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

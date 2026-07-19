@@ -1,15 +1,23 @@
-import { Component, input } from '@angular/core';
-import { SavedQuote } from '@models/SavedQuote'; // Or whatever your structural type model is named
-import { GenericCard } from '@shared/components/generic-card/generic-card'; // Path up to shared directory
-import { CommonModule } from '@angular/common';
+import { Component, input, computed, inject } from '@angular/core';
+import { SavedQuote } from '@models/SavedQuote';
+import { OngoingQuotesService } from '@services/ongoing-quotes.service';
+import { RouterLink } from '@angular/router';
+import { GenericCard } from '@shared/components/generic-card/generic-card';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-ongoing-card',
   standalone: true,
-  imports: [CommonModule, GenericCard],
+  imports: [GenericCard, MatCardModule, MatIconModule, RouterLink],
   templateUrl: './ongoing-card.html',
   styleUrl: './ongoing-card.css'
 })
 export class OngoingCard {
+  private quotesService = inject(OngoingQuotesService);
+  
   quote = input.required<SavedQuote>();
+
+  // Computes the Base64 hash dynamically whenever the quote changes
+  quoteHash = computed(() => this.quotesService.generateQuoteHash(this.quote()));
 }

@@ -1,6 +1,9 @@
 export interface ContractedService {
   name: string;
   details?: string;
+  basePrice: number;
+  pages?: number;
+  languages?: number;
 }
 
 export interface SavedQuote {

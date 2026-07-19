@@ -2,6 +2,47 @@
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 0.0625rem dashed var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.history-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-date-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.detail-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-brand-green);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.detail-link-btn:hover {
+  transform: translateX(3px);
+}
+
+.detail-link-btn mat-icon {
+  font-size: 1.1rem;
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .services-heading {
@@ -10,24 +51,29 @@
   letter-spacing: 0.05rem;
   color: var(--color-text-muted);
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .services-items {
   list-style: none;
-  padding: 0;
+  padding: 1rem;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 1rem;
 }
 
 .service-item {
   font-size: 0.95rem;
   color: var(--color-text-dark);
+  font-weight: 600;
 }
 
 .service-details {
   color: var(--color-text-muted);
   margin-left: 0.5rem;
   font-size: 0.85rem;
+  font-weight: 400;
 }
