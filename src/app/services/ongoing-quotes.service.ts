@@ -9,10 +9,7 @@ export class OngoingQuotesService {
   private http = inject(HttpClient);
   private jsonUrl = 'data/QuotesData.json'; 
 
-  // Core internal state signal
   private quotesSignal = signal<SavedQuote[]>([]);
-  
-  // Public read-only signal for your components to bind to reactively
   quotes = this.quotesSignal.asReadonly();
 
   constructor() {
@@ -32,15 +29,41 @@ export class OngoingQuotesService {
     });
   }
 
-  // Appends a new quote instantly in memory
   addQuote(newQuote: Omit<SavedQuote, 'id' | 'date'>): void {
     this.quotesSignal.update(currentQuotes => [
       ...currentQuotes,
       {
         ...newQuote,
         id: currentQuotes.length + 1,
-        date: new Date() // Sets timestamp to right now
+        date: new Date()
       }
     ]);
+  }
+
+  
+  generateQuoteHash(quote: SavedQuote): string {
+  // Ensure we get a clean, predictable DD/MM/YYYY string format
+    const targetDate = quote.date instanceof Date ? quote.date : new Date(quote.date);
+    
+    const day = String(targetDate.getDate()).padStart(2, '0');
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const year = targetDate.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+
+    const dataPayload = {
+      n: quote.clientName,
+      e: quote.clientEmail,
+      p: quote.clientPhone,
+      d: formattedDate,
+      t: quote.totalPrice,
+      s: quote.services.map(s => ({
+        t: s.name,
+        base: s.basePrice,
+        pages: s.pages || 0,
+        langs: s.languages || 0
+      }))
+    };
+
+    return btoa(encodeURIComponent(JSON.stringify(dataPayload)));
   }
 }

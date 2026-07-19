@@ -1,0 +1,72 @@
+<div class="detail-container">
+
+  @if (quote(); as q) {
+  <div class="invoice-box">
+    <div class="detail-header">
+      <h1>Detalls del pressupost</h1>
+      <span class="quote-date">Data: {{ q.date.toLocaleDateString() }}</span>
+    </div>
+
+    <hr class="divider">
+
+    <section class="detail-section">
+      <h2>Informació del client</h2>
+      <div class="client-grid">
+        <div><strong>Nom:</strong> {{ q.clientName }}</div>
+        <div><strong>Email:</strong> {{ q.clientEmail }}</div>
+        <div><strong>Telèfon:</strong> {{ q.clientPhone }}</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Serveis Seleccionats</h2>
+      <div class="services-list">
+        @for (service of q.services; track service.name) {
+          <div class="service-block">
+            <div class="service-main-row">
+              <span class="service-title">{{ service.name }} </span>
+              <span class="service-total-cost">{{ calculateServiceTotal(service) }} €</span>
+            </div>
+            
+            @if ((service.pages || 0) > 0 || (service.languages || 0) > 0) {
+              <div class="price-breakdown-box">
+                <div class="breakdown-line">
+                  <span>Preu base del servei </span>
+                  <span>{{ service.basePrice }} €</span>
+                </div>
+                
+                @if ((service.pages || 0) > 0) {
+                  <div class="breakdown-line">
+                    <span>Cost per pàgines ({{ service.pages }} pàgines × 30€)</span>
+                    <span> + {{ (service.pages || 0) * 30 }} €</span>
+                  </div>
+                }
+
+                @if ((service.languages || 0) > 0) {
+                  <div class="breakdown-line">
+                    <span>Cost per idiomes ({{ service.languages }} llenguatges × 30€)</span>
+                    <span> + {{ (service.languages || 0) * 30 }} €</span>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </section>
+
+    <div class="total-bar">
+      <span>Preu Total</span>
+      <span class="total-price">{{ q.totalPrice }} €</span>
+    </div>
+  </div>
+}
+
+  <!-- Printable action trigger - Hidden when exporting to PDF -->
+  <div class="no-print action-banner">
+    <button mat-flat-button class="pdf-btn" (click)="exportToPDF()">
+      <mat-icon>download</mat-icon>
+      Export as PDF
+    </button>
+  </div>
+</div>

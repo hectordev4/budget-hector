@@ -66,11 +66,19 @@ export class Overview implements OnInit {
       .filter(offer => !!selections[offer.id])
       .map(offer => {
         const details = selections[offer.id];
-        const service: ContractedService = { name: offer.title };
+        
+        // Populate the base interface requirements
+        const service: ContractedService = { 
+          name: offer.title,
+          basePrice: offer.price // Pass the base cost of the service
+        };
         
         if (offer.hasOptions && details) {
           service.details = `${details.pages} pàgines, ${details.languages} llenguatges`;
+          service.pages = details.pages;         // Track page count explicitly
+          service.languages = details.languages; // Track language count explicitly
         }
+        
         return service;
       });
 
