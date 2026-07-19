@@ -1,10 +1,10 @@
 .custom-service-card {
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   border-radius: 2rem;
   padding: 1.5rem;
   background-color: var(--color-bg-primary);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: var(--global-box-shadow);
 }
 
 .card-selected {

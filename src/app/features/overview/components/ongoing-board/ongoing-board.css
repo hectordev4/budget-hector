@@ -21,7 +21,6 @@
   margin: 0;
 }
 
-/* --- Presentation Display Cards Stack --- */
 .quotes-stack {
   display: flex;
   flex-direction: column;
@@ -31,8 +30,8 @@
 .quote-display-card {
   background-color: var(--color-bg-primary);
   border-radius: 1.5rem;
-  border: 0.0625rem solid var(--color-border-light);
-  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.03);
+  border: var(--global-border);
+  box-shadow: var(--global-box-shadow);
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -44,7 +43,6 @@
   flex: 1;
 }
 
-/* Info Column Text Rules */
 .client-info h3 {
   font-family: sans-serif;
   font-size: 1.4rem;
@@ -60,7 +58,6 @@
   margin: 0 0 0.2rem 0;
 }
 
-/* Service Itemized Layout */
 .services-info h4 {
   font-family: sans-serif;
   font-size: 0.95rem;
@@ -119,13 +116,12 @@
   font-family: sans-serif;
 }
 
-/* --- Responsive Adaptations --- */
 @media (min-width: 40rem) {
   .board-header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem
+    gap: 1.5rem;
   }
   
   .quote-display-card {

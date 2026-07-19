@@ -1,4 +1,3 @@
-/* --- 1. Mobile Default (< 40rem) --- */
 .overview-container {
   display: flex;
   flex-direction: column;
@@ -28,12 +27,11 @@
 
 .section-divider {
   border: 0;
-  border-top: 0.0625rem dashed var(--color-border-light, rgba(0, 0, 0, 0.15));
+  border-top: 0.0625rem dashed var(--color-border-light);
   margin: 3rem 0;
   width: 100%;
 }
 
-/* --- 2. Tablet Mid-range (40rem to 64rem) --- */
 @media (min-width: 40rem) {
   .overview-container {
     padding: 1.5rem 1rem 7.5rem 1rem;
@@ -44,7 +42,6 @@
   }
 }
 
-/* --- 3. Desktop Large Screen (>= 64rem) --- */
 @media (min-width: 64rem) {
   .overview-container {
     padding: 2rem 2rem 8rem 2rem;

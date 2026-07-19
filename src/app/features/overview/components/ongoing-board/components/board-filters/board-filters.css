@@ -20,7 +20,7 @@
 
 .search-box input {
   border: none;
-  border-bottom: 0.0625rem solid var(--color-border-light);
+  border-bottom: var(--global-border);
   font-family: sans-serif;
   font-size: 0.9rem;
   padding: 0.2rem;

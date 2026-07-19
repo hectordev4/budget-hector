@@ -3,7 +3,8 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-top: 0.0625rem solid var(--color-border-light);
+  border-top: var(--global-border);
+  box-shadow: var(--global-box-shadow);
   margin: 4rem 0;
   padding: 1.25rem 0;
   z-index: 10;
@@ -53,11 +54,11 @@
     justify-content: right;
     align-items: center;
   }
+
   .summary-content {
     max-width: var(--max-width-content);
     justify-content: flex-end;
     padding: 0 2rem;
-    
   }
 
   .summary-label {

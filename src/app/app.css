@@ -1,39 +1,3 @@
-/* app.css / styles.css */
-
-:root {
-  /* Brand & UI Colors */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f7f6f3;
-  --color-border-light: rgba(0, 0, 0, 0.08);
-  --color-border-card: rgba(0, 0, 0, 0.04);
-  --color-text-main: #000000;
-  --color-text-dark: #1a1a1a;
-  --color-text-muted: #555555;
-  --color-text-light: #666666;
-  
-  /* Feature Colors */
-  --color-brand-green: #4e9f6d;
-  --color-brand-orange: #ff8a5c;
-  --color-brand-yellow: #f5d061;
-  
-  /* Elevation & Shadows */
-  --shadow-soft: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.03);
-  --shadow-hover: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
-  --shadow-selected: 0 0.5rem 1.5rem rgba(78, 159, 109, 0.08);
-
-  /* Layout Constraints */
-  --max-width-content: 50rem; /* ~800px max width for cards/banners */
-  
-  /* Global Transitions */
-  --transition-smooth: 0.2s ease;
-  --transition-card: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-
-  /* Breakpoint References (for documentation):
-     - Tablet: 40rem (640px)
-     - Desktop: 64rem (1024px)
-  */
-}
-
 body {
   font-family: sans-serif;
   color: var(--color-text-main);
