@@ -1,59 +1,146 @@
-# BudgetHector
+# **BudgetHector**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.0-next.0.
+BudgetHector is a modern Angular-based frontend application designed to help users explore budget offers, review quote details, manage ongoing quotes, and complete user information forms in a streamlined experience.  
+The app combines a clean dashboard experience with reusable UI components to make quote and budget workflows easier to understand and interact with.
 
-## Development server
+## **Overview**
 
-To start a local development server, run:
+BudgetHector focuses on the end-to-end experience of handling a budgeting flow:
 
-```bash
+* **Browse** available offers  
+* **Review** detailed quote information  
+* **Track** ongoing quotes  
+* **Collect** user input for submission  
+* **View** a simple, structured overview of the current budget context
+
+It is built as a single-page application with modular components and a service-oriented structure, making it easy to extend and maintain.
+
+## **Key Features**
+
+* **Responsive Overview Dashboard:** Seamless tracking on any screen size.  
+* **Budget Summary Section:** Complete with accessible, localized structural semantics.  
+* **Offer Listing & Selection Flow:** Smooth transitions for picking and pricing services.  
+* **Ongoing Quote Board:** Keep tabs on live estimates effortlessly.  
+* **Quote Detail View:** Deep dives into individual itemized breakdowns.  
+* **User Forms:** Clean, reactive input gathering for submissions.  
+* **Reusable Shared UI:** Highly modular components like cards and modal dialogs under a unified layout syntax.  
+* **Angular Routing:** Organized, decoupled routing architecture.
+
+## **Tech Stack**
+
+BudgetHector is powered by:
+
+* **Framework:** Angular  
+* **Language:** TypeScript  
+* **Styling:** HTML / CSS / SCSS  
+* **Tooling:** Angular CLI  
+* **Testing Suite:** Vitest for lightning-fast unit testing
+
+## **Project Structure**
+
+A simplified look at how the workspace is structured:
+
+Plaintext  
+src/  
+  app/  
+    features/  
+      banner/  
+      overview/  
+        components/  
+          budget-summary/  
+          offer-list/  
+          ongoing-board/  
+          user-form/  
+      quote-detail/  
+    models/  
+    services/  
+    shared/  
+      components/  
+        generic-card/  
+        info-modal/
+
+## **Getting Started**
+
+### **Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+* **Node.js**  
+* **npm**
+
+### **Install Dependencies**
+
+Kick off the setup by restoring project dependencies:
+
+Bash  
+npm install
+
+### **Run the Development Server**
+
+Spin up the local development instance:
+
+Bash  
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then point your browser to:
 
-## Code scaffolding
+Plaintext  
+http://localhost:4200/
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+💡 **Pro-Tip:** The application features Hot Module Replacement (HMR)—it will automatically reload your view whenever you modify source files.
 
-```bash
-ng generate component component-name
-```
+## **Available Scripts**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### **Start Development Server**
 
-```bash
-ng generate --help
-```
+Bash  
+ng serve
 
-## Building
+### **Build for Production**
 
-To build the project run:
-
-```bash
+Bash  
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### **Run Tests**
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
+Bash  
 ng test
-```
 
-## Running end-to-end tests
+## **Development Notes**
 
-For end-to-end (e2e) testing, run:
+The application scales cleanly around a **Feature-Based Architecture**:
 
-```bash
-ng e2e
-```
+* **Isolated Feature Layers:** Feature code lives self-contained inside features/.  
+* **Strict UI Decoupling:** Reusable presentation widgets stay safely tucked under shared/components/.  
+* **Data Models & Business Logic:** Pure typescript structures and injection tokens reside within models/ and services/.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This setup prevents layout collapses and guarantees that code modifications stay predictable.
 
-## Additional Resources
+## **Testing**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Unit tests are configured to run seamlessly through **Vitest**.  
+To run the test suite:
+
+Bash  
+ng test
+
+## **Contributing**
+
+Contributions are welcome. If you’d like to improve the app:
+
+1. **Fork** the repository  
+2. **Create** a feature branch (git checkout \-b feature/amazing-feature)  
+3. **Make** your changes  
+4. **Run** your tests (ng test) to ensure everything is green  
+5. **Submit** a pull request
+
+## **Future Improvement Ideas**
+
+* **Persistent Storage:** Integrating backend APIs or state management synchronization.  
+* **Robust Forms Validation:** Advanced reactive control feedback and comprehensive error diagnostics.  
+* **Filtering & Analytics:** Rich filtering capabilities alongside visual charts for budgets.  
+* **Accessibility & UX:** Deep audit checking for optimal screen-reader layouts and keyboard-only tracking.
+
+## **Notes**
+
+This project was initially generated with Angular CLI and is currently being developed as a frontend experience for budget and quote workflows.
