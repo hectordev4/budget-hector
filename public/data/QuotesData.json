@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "clientName": "Ona Costa",
+    "clientEmail": "ona.costa@gmail.com",
+    "clientPhone": "666 666 666",
+    "totalPrice": 980,
+    "date": "2026-07-15",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 4, "languages": 2, "details": "4 pàgines, 2 llenguatges" },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 2,
+    "clientName": "Joan Farrés",
+    "clientEmail": "joan.farre@gmail.com",
+    "clientPhone": "666 666 666",
+    "totalPrice": 700,
+    "date": "2026-07-16",
+    "services": [
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 3,
+    "clientName": "Marc Vila",
+    "clientEmail": "marc.vila@outlook.cat",
+    "clientPhone": "600 112 233",
+    "totalPrice": 990,
+    "date": "2026-07-10T10:30:00.000Z",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 2, "languages": 1, "details": "2 pàgines, 1 llenguatge" },
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 4,
+    "clientName": "Laia Soler",
+    "clientEmail": "laia@solerestudi.com",
+    "clientPhone": "655 443 322",
+    "totalPrice": 1560,
+    "date": "2026-07-12T15:45:00.000Z",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 8, "languages": 4, "details": "8 pàgines, 4 llenguatges" },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 },
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 5,
+    "clientName": "Pol Rovira",
+    "clientEmail": "pol.rovira@gmail.com",
+    "clientPhone": "677 889 900",
+    "totalPrice": 300,
+    "date": "2026-07-14T09:15:00.000Z",
+    "services": [
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 6,
+    "clientName": "Clara Sànchez",
+    "clientEmail": "clara.sanchez@ canva.cat",
+    "clientPhone": "622 554 433",
+    "totalPrice": 680,
+    "date": "2026-07-16T18:20:00.000Z",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 5, "languages": 1, "details": "5 pàgines, 1 llenguatge" }
+    ]
+  },
+  {
+    "id": 7,
+    "clientName": "Albert Martí",
+    "clientEmail": "albert@marticonsultors.cat",
+    "clientPhone": "611 223 344",
+    "totalPrice": 700,
+    "date": "2026-07-17T11:00:00.000Z",
+    "services": [
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 8,
+    "clientName": "Sílvia Solé",
+    "clientEmail": "silvia.sole@estudicreatiu.cat",
+    "clientPhone": "633 445 566",
+    "totalPrice": 860,
+    "date": "2026-07-18T14:10:00.000Z",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 6, "languages": 6, "details": "6 pàgines, 6 llenguatges" }
+    ]
+  },
+  {
+    "id": 9,
+    "clientName": "Jordi Roca",
+    "clientEmail": "jroca@logistica.es",
+    "clientPhone": "644 556 677",
+    "totalPrice": 1320,
+    "date": "2026-07-19T08:55:00.000Z",
+    "services": [
+      { "name": "Web", "basePrice": 500, "pages": 4, "languages": 0, "details": "4 pàgines, 0 llenguatges" },
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  },
+  {
+    "id": 10,
+    "clientName": "Marta Gili",
+    "clientEmail": "marta.gili@agencia.cat",
+    "clientPhone": "688 990 011",
+    "totalPrice": 700,
+    "date": "2026-07-19T10:15:00.000Z",
+    "services": [
+      { "name": "Ads", "basePrice": 400, "pages": 0, "languages": 0 },
+      { "name": "SEO", "basePrice": 300, "pages": 0, "languages": 0 }
+    ]
+  }
+]

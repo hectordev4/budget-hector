@@ -1,0 +1,75 @@
+<section class="form-card-container" aria-label="Formulari de sol·licitud">
+  <div class="form-card">
+    <h3 class="form-title" id="form-heading">Sol·licitud de Pressupost</h3>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-layout" aria-labelledby="form-heading">
+      
+      <div class="form-group">
+        <label for="name">Nom:</label>
+        <div class="input-wrapper">
+          <input 
+            id="name" 
+            type="text" 
+            formControlName="name" 
+            placeholder="Introdueix el teu nom"
+            [class.has-error]="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+            [attr.aria-invalid]="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+            [attr.aria-describedby]="userForm.get('name')?.invalid && userForm.get('name')?.touched ? 'name-error' : null"
+            required
+          />
+        </div>
+        @if (userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+          <small class="error-text" id="name-error" role="status">El nom és obligatori.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telèfon:</label>
+        <div class="input-wrapper">
+          <input 
+            id="phone" 
+            type="tel" 
+            formControlName="phone" 
+            placeholder="Introdueix el teu telèfon"
+            [class.has-error]="userForm.get('phone')?.invalid && userForm.get('phone')?.touched"
+            [attr.aria-invalid]="userForm.get('phone')?.invalid && userForm.get('phone')?.touched"
+            [attr.aria-describedby]="userForm.get('phone')?.invalid && userForm.get('phone')?.touched ? 'phone-error' : null"
+            required
+          />
+        </div>
+        @if (userForm.get('phone')?.invalid && userForm.get('phone')?.touched) {
+          <small class="error-text" id="phone-error" role="status">El telèfon és obligatori.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <div class="input-wrapper">
+          <input 
+            id="email" 
+            type="email" 
+            formControlName="email" 
+            placeholder="Introdueix el teu email"
+            [class.has-error]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+            [attr.aria-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+            [attr.aria-describedby]="userForm.get('email')?.invalid && userForm.get('email')?.touched ? 'email-error' : null"
+            required
+          />
+        </div>
+        @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+          <small class="error-text" id="email-error" role="status">Introdueix un email vàlid.</small>
+        }
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="userForm.invalid" 
+        [class.btn-active]="userForm.valid"
+        class="submit-btn"
+        [attr.aria-disabled]="userForm.invalid">
+        Sol·licitar Pressupost
+      </button>
+
+    </form>
+  </div>
+</section>

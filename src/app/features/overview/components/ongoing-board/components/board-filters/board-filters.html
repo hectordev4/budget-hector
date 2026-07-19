@@ -1,0 +1,50 @@
+<div class="actions-toolbar" role="toolbar" aria-label="Barra d'accions de filtratge i ordenació">
+  <div class="search-box">
+    <mat-icon class="search-icon" aria-hidden="true">search</mat-icon>
+    <input 
+      type="text" 
+      id="search-input"
+      placeholder="Buscar per nom..." 
+      aria-label="Buscar pressupostos per nom del client"
+      (input)="onSearchInput($event)"
+    />
+  </div>
+
+  <div class="sort-links" role="group" aria-label="Opcions d'ordenació">
+    <button 
+      type="button" 
+      (click)="onSortClick('date')" 
+      [class.active]="currentSortBy() === 'date'"
+      [attr.aria-pressed]="currentSortBy() === 'date'"
+      [attr.aria-label]="'Ordenar per data. ' + (currentSortBy() === 'date' ? (isSortAscending() ? 'Ordre ascendent de més antic a més nou' : 'Ordre descendent de més nou a més antic') : '')">
+      Data 
+      @if (currentSortBy() === 'date') {
+        <span class="arrow" aria-hidden="true">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+
+    <button 
+      type="button" 
+      (click)="onSortClick('price')" 
+      [class.active]="currentSortBy() === 'price'"
+      [attr.aria-pressed]="currentSortBy() === 'price'"
+      [attr.aria-label]="'Ordenar per import. ' + (currentSortBy() === 'price' ? (isSortAscending() ? 'Ordre ascendent de menor a major' : 'Ordre descendent de major a menor') : '')">
+      Import 
+      @if (currentSortBy() === 'price') {
+        <span class="arrow" aria-hidden="true">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+
+    <button 
+      type="button" 
+      (click)="onSortClick('name')" 
+      [class.active]="currentSortBy() === 'name'"
+      [attr.aria-pressed]="currentSortBy() === 'name'"
+      [attr.aria-label]="'Ordenar per nom de client. ' + (currentSortBy() === 'name' ? (isSortAscending() ? 'Ordre alfabètic de l\'A a la Z' : 'Ordre alfabètic invers de la Z a l\'A') : '')">
+      Nom 
+      @if (currentSortBy() === 'name') {
+        <span class="arrow" aria-hidden="true">{{ isSortAscending() ? '▲' : '▼' }}</span>
+      }
+    </button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<section class="summary-section" aria-label="Resum del pressupost estimat">
+  <div class="summary-content">
+
+    <div class="summary-breakdown">
+      @if (selectedServices().length > 0) {
+        <ul class="breakdown-list">
+          @for (item of selectedServices(); track item.title) {
+            <li>
+              <span class="breakdown-item-title">{{ item.title }}</span>
+              <span class="breakdown-item-price">{{ item.price | currency:'EUR':'':'1.0-0' }} €</span>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="breakdown-empty">Sense serveis seleccionats</p>
+      }
+    </div>
+
+    <div class="summary-total-wrapper">
+      <span class="summary-label">Preu pressuposat:</span>
+      <span class="summary-total">{{ total() | currency:'EUR':'':'1.0-0' }} €</span>
+    </div>
+
+  </div>
+</section>

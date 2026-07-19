@@ -1,0 +1,59 @@
+.actions-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--color-text-light);
+}
+
+.search-box input {
+  border: none;
+  border-bottom: var(--global-border);
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  outline: none;
+  width: 8rem;
+  transition: width 0.2s ease;
+}
+
+.search-box input:focus {
+  width: 12rem;
+  border-bottom-color: var(--color-text-main);
+}
+
+.sort-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.sort-links button {
+  background: none;
+  border: none;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.sort-links button.active {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
