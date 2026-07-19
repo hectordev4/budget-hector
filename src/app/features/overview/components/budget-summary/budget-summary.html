@@ -1,4 +1,4 @@
-<section class="summary-section">
+<section class="summary-section" aria-label="Resum del pressupost estimat">
   <div class="summary-content">
 
     <div class="summary-breakdown">
@@ -7,7 +7,7 @@
           @for (item of selectedServices(); track item.title) {
             <li>
               <span class="breakdown-item-title">{{ item.title }}</span>
-              <span class="breakdown-item-price">{{ item.price | currency:'EUR':'symbol':'1.0-0' }}</span>
+              <span class="breakdown-item-price">{{ item.price | currency:'EUR':'':'1.0-0' }} €</span>
             </li>
           }
         </ul>
@@ -18,7 +18,7 @@
 
     <div class="summary-total-wrapper">
       <span class="summary-label">Preu pressuposat:</span>
-      <span class="summary-total">{{ total() | currency:'EUR':'symbol':'1.0-0' }}</span>
+      <span class="summary-total">{{ total() | currency:'EUR':'':'1.0-0' }} €</span>
     </div>
 
   </div>

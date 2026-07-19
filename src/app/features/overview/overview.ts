@@ -31,7 +31,6 @@ export class Overview implements OnInit {
     });
   }
 
-  // Maps active selections into an itemized array for the breakdown summary
   selectedServices = computed<SelectedService[]>(() => {
     const selections = this.activeSelections();
     
@@ -52,7 +51,6 @@ export class Overview implements OnInit {
       });
   });
 
-  // Automatically derives the total sum directly from the itemized array
   totalBudget = computed(() => {
     return this.selectedServices().reduce((sum, item) => sum + item.price, 0);
   });
