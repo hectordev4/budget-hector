@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { Banner } from './components/banner/banner';
-import { Overview } from './pages/overview/overview';
+import { Banner } from './features/banner/banner';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Banner, Overview],
+  imports: [Banner, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  // protected readonly title = signal('budget-hector');
+  protected readonly title = signal('Gestor de Pressupostos');
 }

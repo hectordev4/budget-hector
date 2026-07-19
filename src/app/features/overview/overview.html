@@ -1,0 +1,24 @@
+<section class="overview-container" aria-label="Gestor principal de pressupostos">
+  
+  @if (offers().length === 0) {
+    <div class="loading-spinner" role="status" aria-live="polite">
+      <p>Carregant ofertes...</p>
+    </div>
+  } @else {
+    <section class="cards-list" aria-label="Llista d'ofertes de serveis">
+      <app-offer-list 
+        [offers]="offers()"
+        [activeSelections]="activeSelections()"
+        (offerStateChange)="handleOfferStateChange($event)">
+      </app-offer-list>
+    </section>
+  }
+  
+  <app-budget-summary [total]="totalBudget()"></app-budget-summary>
+  <app-user-form (formSubmit)="onUserFormSubmit($event)"></app-user-form>
+
+  <hr class="section-divider" aria-hidden="true" />
+  
+  <app-ongoing-board></app-ongoing-board>
+
+</section>
