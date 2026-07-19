@@ -1,4 +1,4 @@
-<mat-card [class.card-selected]="isSelected()" class="custom-service-card">
+<mat-card [class.card-selected]="isSelected()" class="custom-service-card" role="region" [attr.aria-label]="'Servei de ' + title()">
   <div class="card-layout-wrapper">
     
     <div class="card-main-content">
@@ -7,19 +7,18 @@
       </mat-card-header>
       <mat-card-subtitle>{{ description() }}</mat-card-subtitle>
 
-      <!-- Outside projected details drop here -->
       <ng-content select="mat-card-content"></ng-content>
     </div>
 
     <div class="card-action-sidebar">
-      <span class="price-display">{{ price() }}€</span>
+      <span class="price-display" [attr.aria-label]="'Preu: ' + price() + ' euros'">{{ price() }}€</span>
       
-      <!-- Checkbox is now optional! -->
       @if (showCheckbox()) {
         <mat-checkbox 
           [checked]="isSelected()" 
           (change)="toggleSelection()"
-          class="custom-card-checkbox">
+          class="custom-card-checkbox"
+          [attr.aria-label]="'Seleccionar el servei de ' + title()">
           Afegir
         </mat-checkbox>
       }

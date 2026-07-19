@@ -7,18 +7,21 @@
   <mat-card-content class="history-drawer">
     <div class="history-meta">
       <span class="quote-date-tag">
-        Created on: {{ quote().date.toLocaleDateString() }}
+        Creat: {{ quote().date.toLocaleDateString() }}
       </span>
       
-      <a [routerLink]="['/pressupost', quoteHash()]" target="_blank" class="detail-link-btn">
-        View details
-        <mat-icon>open_in_new</mat-icon>
+      <a [routerLink]="['/pressupost', quoteHash()]" 
+         target="_blank" 
+         class="detail-link-btn"
+         [attr.aria-label]="'Veure detalls de ' + quote().clientName + ' (s\'obre en una nova pestanya)'">
+        Veure detalls
+        <mat-icon aria-hidden="true">open_in_new</mat-icon>
       </a>
     </div>
 
     <div class="services-summary">
-      <span class="summary-tagline">Contracted Services:</span>
-      <ul class="summary-list">
+      <span class="summary-tagline" id="services-heading">Serveis contractats:</span>
+      <ul class="summary-list" aria-labelledby="services-heading">
         @for (service of quote().services; track service.name) {
           <li class="summary-item">
             <span class="item-name">{{ service.name }}</span>

@@ -1,6 +1,6 @@
-<section class="summary-section">
-  <div class="summary-content">
-    <span class="summary-label">Preu pressuposat:</span>
-    <span class="summary-total">{{ total() }}€</span>
+<section class="summary-section" aria-label="Resum del pressupost">
+  <div class="summary-content" aria-live="polite" aria-atomic="true">
+    <span class="summary-label" id="total-price-label">Preu pressuposat:</span>
+    <span class="summary-total" aria-labelledby="total-price-label">{{ total() }}€</span>
   </div>
 </section>

@@ -1,8 +1,8 @@
-<div class="modal-container">
+<section class="modal-container" role="dialog" aria-labelledby="modal-main-title" aria-modal="true">
   <div class="modal-header-wrapper">
-    <h2 mat-dialog-title class="modal-title">{{ data.title }}</h2>
-    <button type="button" mat-icon-button (click)="close()" class="close-btn">
-      <mat-icon>close</mat-icon>
+    <h2 mat-dialog-title class="modal-title" id="modal-main-title">{{ data.title }}</h2>
+    <button type="button" mat-icon-button (click)="close()" class="close-btn" aria-label="Tancar finestra emergent">
+      <mat-icon aria-hidden="true">close</mat-icon>
     </button>
   </div>
 
@@ -11,8 +11,8 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end" class="modal-actions-panel">
-    <button mat-flat-button (click)="close()" class="modal-confirm-btn">
+    <button mat-flat-button (click)="close()" class="modal-confirm-btn" aria-label="Acceptar i tancar finestra">
       D'acord
     </button>
   </mat-dialog-actions>
-</div>
+</section>

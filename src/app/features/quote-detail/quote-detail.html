@@ -1,16 +1,16 @@
-<div class="detail-container">
+<section class="detail-container">
 
   @if (quote(); as q) {
-  <div class="invoice-box">
+  <div class="invoice-box" role="region" aria-label="Vista detallada de la factura del pressupost">
     <div class="detail-header">
-      <h1>Detalls del pressupost</h1>
-      <span class="quote-date">Data: {{ q.date.toLocaleDateString() }}</span>
+      <h1 id="invoice-main-title">Detalls del pressupost</h1>
+      <span class="quote-date" [attr.aria-label]="'Data d\'emissió: ' + q.date.toLocaleDateString()">Data: {{ q.date.toLocaleDateString() }}</span>
     </div>
 
-    <hr class="divider">
+    <hr class="divider" aria-hidden="true">
 
-    <section class="detail-section">
-      <h2>Informació del client</h2>
+    <section class="detail-section" aria-labelledby="client-info-heading">
+      <h2 id="client-info-heading">Informació del client</h2>
       <div class="client-grid">
         <div><strong>Nom:</strong> {{ q.clientName }}</div>
         <div><strong>Email:</strong> {{ q.clientEmail }}</div>
@@ -18,18 +18,18 @@
       </div>
     </section>
 
-    <section class="detail-section">
-      <h2>Serveis Seleccionats</h2>
+    <section class="detail-section" aria-labelledby="services-info-heading">
+      <h2 id="services-info-heading">Serveis Seleccionats</h2>
       <div class="services-list">
         @for (service of q.services; track service.name) {
-          <div class="service-block">
+          <div class="service-block" role="region" [attr.aria-label]="'Detall del servei ' + service.name">
             <div class="service-main-row">
               <span class="service-title">{{ service.name }} </span>
-              <span class="service-total-cost">{{ calculateServiceTotal(service) }} €</span>
+              <span class="service-total-cost" [attr.aria-label]="'Cost total del servei ' + service.name + ': ' + calculateServiceTotal(service) + ' euros'">{{ calculateServiceTotal(service) }} €</span>
             </div>
             
             @if ((service.pages || 0) > 0 || (service.languages || 0) > 0) {
-              <div class="price-breakdown-box">
+              <div class="price-breakdown-box" aria-label="Desglossament de preus">
                 <div class="breakdown-line">
                   <span>Preu base del servei </span>
                   <span>{{ service.basePrice }} €</span>
@@ -55,18 +55,17 @@
       </div>
     </section>
 
-    <div class="total-bar">
+    <div class="total-bar" role="status" aria-live="polite">
       <span>Preu Total</span>
-      <span class="total-price">{{ q.totalPrice }} €</span>
+      <span class="total-price" [attr.aria-label]="'Import total final: ' + q.totalPrice + ' euros'">{{ q.totalPrice }} €</span>
     </div>
   </div>
 }
 
-  <!-- Printable action trigger - Hidden when exporting to PDF -->
   <div class="no-print action-banner">
-    <button mat-flat-button class="pdf-btn" (click)="exportToPDF()">
-      <mat-icon>download</mat-icon>
+    <button mat-flat-button class="pdf-btn" aria-label="Exportar aquest pressupost en format PDF" (click)="exportToPDF()">
+      <mat-icon aria-hidden="true">download</mat-icon>
       Export as PDF
     </button>
   </div>
-</div>
+</section>

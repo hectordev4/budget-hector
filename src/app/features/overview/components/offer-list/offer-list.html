@@ -1,5 +1,6 @@
-<section class="offers-container-grid">
+<section class="offers-container-grid" aria-label="Serveis i opcions disponibles">
   @for (offer of offers(); track offer.id) {
+
     <app-generic-card
       [title]="offer.title"
       [description]="offer.description"
@@ -7,37 +8,34 @@
       [isSelected]="!!activeSelections()[offer.id]"
       (selectionChange)="toggleSelection(offer, $event)">
 
-      <!-- Projecting custom counter panel into the mat-card-content slot -->
       @if (offer.hasOptions && activeSelections()[offer.id]) {
-        <mat-card-content class="accordion-panel">
+        <mat-card-content class="accordion-panel" role="region" [attr.aria-label]="'Configuració addicional per a ' + offer.title">
           
-          <!-- Pages Counter Row -->
           <div class="counter-row">
             <div class="label-with-modal">
-              <span class="counter-label">Nombre de pàgines</span>
-              <button mat-icon-button type="button" class="info-trigger-btn" (click)="openHelp('pages')">
-                <mat-icon>info</mat-icon>
+              <span class="counter-label" [id]="'pages-label-' + offer.id">Nombre de pàgines</span>
+              <button mat-icon-button type="button" class="info-trigger-btn" [attr.aria-label]="'Més informació sobre el nombre de pàgines de ' + offer.title" (click)="openHelp('pages')">
+                <mat-icon aria-hidden="true">info</mat-icon>
               </button>
             </div>
             <div class="counter-controls">
-              <button mat-mini-fab type="button" class="action-count-btn" (click)="updatePages(offer, -1)">-</button>
-              <span class="counter-value">{{ getPages(offer.id) }}</span>
-              <button mat-mini-fab type="button" class="action-count-btn" (click)="updatePages(offer, 1)">+</button>
+              <button mat-mini-fab type="button" class="action-count-btn" [attr.aria-label]="'Reduir pàgines per a ' + offer.title" (click)="updatePages(offer, -1)">-</button>
+              <span class="counter-value" aria-live="polite" [attr.aria-labelledby]="'pages-label-' + offer.id">{{ getPages(offer.id) }}</span>
+              <button mat-mini-fab type="button" class="action-count-btn" [attr.aria-label]="'Augmentar pàgines per a ' + offer.title" (click)="updatePages(offer, 1)">+</button>
             </div>
           </div>
 
-          <!-- Languages Counter Row -->
           <div class="counter-row">
             <div class="label-with-modal">
-              <span class="counter-label">Nombre de llenguatges</span>
-              <button mat-icon-button type="button" class="info-trigger-btn" (click)="openHelp('languages')">
-                <mat-icon>info</mat-icon>
+              <span class="counter-label" [id]="'langs-label-' + offer.id">Nombre de llenguatges</span>
+              <button mat-icon-button type="button" class="info-trigger-btn" [attr.aria-label]="'Més informació sobre el nombre de llenguatges de ' + offer.title" (click)="openHelp('languages')">
+                <mat-icon aria-hidden="true">info</mat-icon>
               </button>
             </div>
             <div class="counter-controls">
-              <button mat-mini-fab type="button" class="action-count-btn" (click)="updateLanguages(offer, -1)">-</button>
-              <span class="counter-value">{{ getLanguages(offer.id) }}</span>
-              <button mat-mini-fab type="button" class="action-count-btn" (click)="updateLanguages(offer, 1)">+</button>
+              <button mat-mini-fab type="button" class="action-count-btn" [attr.aria-label]="'Reduir llenguatges per a ' + offer.title" (click)="updateLanguages(offer, -1)">-</button>
+              <span class="counter-value" aria-live="polite" [attr.aria-labelledby]="'langs-label-' + offer.id">{{ getLanguages(offer.id) }}</span>
+              <button mat-mini-fab type="button" class="action-count-btn" [attr.aria-label]="'Augmentar llenguatges per a ' + offer.title" (click)="updateLanguages(offer, 1)">+</button>
             </div>
           </div>
 

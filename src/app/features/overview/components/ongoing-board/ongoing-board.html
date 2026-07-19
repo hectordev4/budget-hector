@@ -1,6 +1,6 @@
-<section class="board-container">
+<section class="board-container" aria-label="Tauler de pressupostos en curs">
   <div class="board-header">
-    <h2 class="board-title">Pressupostos en curs:</h2>
+    <h2 class="board-title" id="board-title-heading">Pressupostos en curs:</h2>
     
     <app-board-filters
       [currentSortBy]="sortBy()"
@@ -10,11 +10,11 @@
     </app-board-filters>
   </div>
 
-  <div class="quotes-stack">
+  <div class="quotes-stack" role="region" aria-labelledby="board-title-heading" aria-live="polite" aria-busy="false">
     @for (quote of filteredQuotes(); track quote.id) {
       <app-ongoing-card [quote]="quote"></app-ongoing-card>
     } @empty {
-      <div class="empty-state">No s'ha trobat cap pressupost matching.</div>
+      <div class="empty-state" role="status">No s'ha trobat cap pressupost que coincideixi amb els criteris de cerca.</div>
     }
   </div>
 </section>
