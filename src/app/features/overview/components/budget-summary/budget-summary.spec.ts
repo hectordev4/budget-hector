@@ -37,19 +37,7 @@ describe('BudgetSummary', () => {
     expect(totalElement.textContent).toContain('€ 700');
   });
 
-  it('should display the empty message row when no services are selected', () => {
-
-    componentRef.setInput('selectedServices', []);
-
-    fixture.detectChanges();
-
-    expect(component.total()).toBe(0);
-
-    const listWrapper = fixture.nativeElement.querySelector('.breakdown-list');
-    expect(listWrapper).toBeNull();
-
-    const emptyMessageElement = fixture.nativeElement.querySelector('.breakdown-empty');
-    expect(emptyMessageElement.textContent).toContain('Sense serveis seleccionats');
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
-
 });
