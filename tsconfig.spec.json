@@ -7,7 +7,13 @@
     "rootDir": "./src/app",
     "types": [
       "vitest/globals"
-    ]
+    ],
+    "paths": {
+      "@features/*": ["./src/app/features/*"],
+      "@models/*": ["./src/app/models/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@shared/*": ["./src/app/shared/*"]
+    }
   },
   "include": [
     "src/**/*.d.ts",

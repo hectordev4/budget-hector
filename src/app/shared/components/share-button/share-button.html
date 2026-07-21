@@ -1,0 +1,9 @@
+<button 
+  mat-stroked-button 
+  color="primary"
+  type="button" 
+  (click)="handleShare()" 
+  [attr.aria-label]="ariaLabel()">
+  <mat-icon>{{ copied() ? 'check' : 'share' }}</mat-icon>
+  <span>{{ copied() ? 'Enllaç copiat!' : label() }}</span>
+</button>

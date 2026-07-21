@@ -4,11 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SavedQuote, ContractedService } from '@models/SavedQuote';
 import { EncodedQuotePayload } from '@models/QuotePayload';
+import { ShareButton } from '@shared/components/share-button/share-button';
 
 @Component({
   selector: 'app-quote-detail',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, ShareButton],
   templateUrl: './quote-detail.html',
   styleUrl: './quote-detail.css'
 })

@@ -34,7 +34,7 @@ describe('BudgetSummary', () => {
     expect(component.total()).toBe(700);
 
     const totalElement = fixture.nativeElement.querySelector('.summary-total');
-    expect(totalElement.textContent).toContain('€ 700');
+    expect(totalElement.textContent).toContain('700 €');
   });
 
   it('should create', () => {
