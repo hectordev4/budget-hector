@@ -7,7 +7,7 @@ describe('BudgetSummary', () => {
   let component: BudgetSummary;
   let fixture: ComponentFixture<BudgetSummary>;
   let componentRef: ComponentRef<BudgetSummary>;
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [BudgetSummary]
@@ -17,13 +17,16 @@ describe('BudgetSummary', () => {
     component = fixture.componentInstance;
     componentRef = fixture.componentRef;
 
+    componentRef.setInput('selectedServices', []);
     fixture.detectChanges();
+  });
 
-    expect(component.total()).toBe(700);
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should correctly calculate the total sum of all selected services', () => {
-    const mockServices = [
+    const mockServices: SelectedService[] = [
       { title: 'Seo', price: 300 },
       { title: 'Ads', price: 400 },
     ];
@@ -35,9 +38,5 @@ describe('BudgetSummary', () => {
 
     const totalElement = fixture.nativeElement.querySelector('.summary-total');
     expect(totalElement.textContent).toContain('700 €');
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });
