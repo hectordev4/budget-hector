@@ -61,11 +61,25 @@
     </div>
   </div>
 }
-
-  <div class="no-print action-banner">
-    <button mat-flat-button class="pdf-btn" aria-label="Exportar aquest pressupost en format PDF" (click)="exportToPDF()">
-      <mat-icon aria-hidden="true">download</mat-icon>
-      Export as PDF
-    </button>
-  </div>
+  <section class="actions-section">
+    @if (quote(); as currentQuote) {
+        <app-share-button
+          [shareData]="{
+            title: 'Pressupost per a ' + currentQuote.clientName,
+            text: 'Revisa els detalls del pressupost (' + currentQuote.totalPrice + ' €)'
+          }"
+          label="Compartir pressupost">
+        </app-share-button>
+      }
+    <div class="no-print action-banner">
+      <button 
+        mat-flat-button 
+        class="pdf-btn" 
+        aria-label="Exportar aquest pressupost en format PDF" 
+        (click)="exportToPDF()">
+        <mat-icon aria-hidden="true">download</mat-icon>
+        Exportar com PDF
+      </button>
+    </div>
+  </section>
 </section>

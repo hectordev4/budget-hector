@@ -5,11 +5,12 @@
   font-family: sans-serif;
 }
 
-.action-banner {
+.actions-section{
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
+  gap: 1.5rem;
 }
 
 button.pdf-btn {
@@ -17,6 +18,8 @@ button.pdf-btn {
   color: #ffffff;
   border-radius: 0.75rem;
   font-weight: 600;
+  display: flex;
+  flex-direction: row;
 }
 
 .invoice-box {
